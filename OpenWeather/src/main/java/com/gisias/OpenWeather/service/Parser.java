@@ -20,7 +20,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class Parser {
-	
+	/**
+	 * @param cityname
+	 * @return
+	 */
 	public static String currentParser(String cityname) {
 		
 		String APIKey = "820bf47a49c82ee50491d810263b4bd4";

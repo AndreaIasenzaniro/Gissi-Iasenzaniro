@@ -6,6 +6,9 @@ package com.gisias.OpenWeather.service;
 import java.io.*;
 import java.util.Vector;
 
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
 import com.gisias.OpenWeather.model.Weather;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -18,7 +21,8 @@ import com.google.gson.JsonParser;
  * @author aiasenzaniro
  *
  */
-public interface Methods {
+@Service
+public class Methods {
 	
 	static Vector<String> getCities(){
 		Vector<String> citta = new Vector<String>();
@@ -47,14 +51,14 @@ public interface Methods {
 			e.printStackTrace();
 		}
 	}
-	
-	static void writeCurrent() {
+	@Scheduled(cron="0 0 * * * *")
+	public static void writeCurrent() {
 		for(String c : getCities()) {
 			fileWriter(Parser.currentParser(c), "correnti", c+"cur");
 		}
 	}
 	
-	static void writeForecast() {
+	public static void writeForecast() {
 		for(String c : getCities()) {
 			fileWriter(Parser.forecastParser(c), "previsionali", c+"forec");
 		}
