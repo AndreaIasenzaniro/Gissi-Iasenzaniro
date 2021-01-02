@@ -18,6 +18,10 @@ import com.google.gson.JsonParser;
  */
 public class Serializer {
 	
+	/**
+	 * @param toSerialize
+	 * @return
+	 */
 	public static String currentSerializer(String toSerialize) {
 		Weather weather = new Weather();
 		
@@ -42,12 +46,20 @@ public class Serializer {
 		String weath = gson.toJson(weather);
 		return weath;
 	}
-	
+	/**
+	 * @param toSerialize
+	 * @param cityname
+	 * @return
+	 */
 	public static String forecastSerializer(String toSerialize,String cityname) {
+		
 		Vector<Weather> weathers = new Vector<Weather>();
 		
-		JsonElement jelement = new JsonParser().parse(toSerialize);
+		JsonElement jelement =new JsonParser().parse(toSerialize);
 	    JsonObject  wth = jelement.getAsJsonObject();
+	    
+	    Double lat = (wth.get("lat").getAsDouble());
+		Double lon = (wth.get("lon").getAsDouble());
 	    
 	    JsonArray daily = wth.getAsJsonArray("daily");
 	    for(JsonElement o: daily) {
@@ -61,11 +73,13 @@ public class Serializer {
 	    		JsonObject feels = (JsonObject) obj.get("feels_like");
 	    		weather.setFeels_like(feels.get("day").getAsDouble());
 	    		JsonObject temp = (JsonObject) obj.get("temp");
-	    		weather.setTemp(temp.get("temp").getAsDouble());
+	    		weather.setTemp(temp.get("day").getAsDouble());
 	    		weather.setTempMax(temp.get("max").getAsDouble());
 	    		weather.setTempMin(temp.get("min").getAsDouble());
-	    		weathers.add(weather);
+	    		weather.setLat(lat);
+	    		weather.setLon(lon);
 	    		
+	    		weathers.add(weather);
 	    	}
 	    }
 	    Gson gson = new Gson();
