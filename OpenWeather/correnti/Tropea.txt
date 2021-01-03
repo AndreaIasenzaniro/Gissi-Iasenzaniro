@@ -1,1 +1,6 @@
 {"dt":1609676370,"clouds":20.0,"temp":283.76,"feels_like":280.56,"tempMax":289.15,"tempMin":277.59,"wind_speed":1.5,"cityName":"\"Tropea\"","lat":38.68,"lon":15.89}
+{"dt":1609682718,"clouds":43.0,"temp":285.9,"feels_like":281.71,"tempMax":290.15,"tempMin":278.15,"wind_speed":3.6,"cityName":"\"Tropea\"","lat":38.68,"lon":15.89}
+{"dt":1609682718,"clouds":43.0,"temp":285.9,"feels_like":281.71,"tempMax":290.15,"tempMin":278.15,"wind_speed":3.6,"cityName":"\"Tropea\"","lat":38.68,"lon":15.89}
+{"dt":1609683729,"clouds":43.0,"temp":285.59,"feels_like":282.04,"tempMax":289.15,"tempMin":278.71,"wind_speed":3.1,"cityName":"\"Tropea\"","lat":38.68,"lon":15.89}
+{"dt":1609684898,"clouds":35.0,"temp":285.39,"feels_like":281.8,"tempMax":289.15,"tempMin":278.15,"wind_speed":3.1,"cityName":"\"Tropea\"","lat":38.68,"lon":15.89}
+{"dt":1609691614,"clouds":58.0,"temp":282.54,"feels_like":278.23,"tempMax":286.48,"tempMin":275.93,"wind_speed":4.1,"cityName":"\"Tropea\"","lat":38.68,"lon":15.89}

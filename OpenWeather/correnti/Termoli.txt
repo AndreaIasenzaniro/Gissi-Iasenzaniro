@@ -1,1 +1,4 @@
 {"dt":1609676369,"clouds":100.0,"temp":283.15,"feels_like":276.76,"tempMax":283.15,"tempMin":283.15,"wind_speed":6.71,"cityName":"\"Termoli\"","lat":41.99,"lon":14.99}
+{"dt":1609683785,"clouds":99.0,"temp":282.59,"feels_like":277.25,"tempMax":282.59,"tempMin":282.59,"wind_speed":5.36,"cityName":"\"Termoli\"","lat":41.99,"lon":14.99}
+{"dt":1609684874,"clouds":99.0,"temp":282.04,"feels_like":276.06,"tempMax":282.04,"tempMin":282.04,"wind_speed":6.26,"cityName":"\"Termoli\"","lat":41.99,"lon":14.99}
+{"dt":1609691478,"clouds":100.0,"temp":280.93,"feels_like":274.15,"tempMax":280.93,"tempMin":280.93,"wind_speed":7.15,"cityName":"\"Termoli\"","lat":41.99,"lon":14.99}

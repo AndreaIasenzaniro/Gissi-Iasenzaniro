@@ -1,1 +1,6 @@
 {"dt":1609676213,"clouds":0.0,"temp":285.01,"feels_like":280.45,"tempMax":285.37,"tempMin":283.71,"wind_speed":4.6,"cityName":"\"Provincia di Rimini\"","lat":44.02,"lon":12.52}
+{"dt":1609682467,"clouds":20.0,"temp":285.29,"feels_like":281.99,"tempMax":286.48,"tempMin":283.71,"wind_speed":2.6,"cityName":"\"Provincia di Rimini\"","lat":44.02,"lon":12.52}
+{"dt":1609682467,"clouds":20.0,"temp":285.29,"feels_like":281.99,"tempMax":286.48,"tempMin":283.71,"wind_speed":2.6,"cityName":"\"Provincia di Rimini\"","lat":44.02,"lon":12.52}
+{"dt":1609683698,"clouds":20.0,"temp":285.16,"feels_like":282.98,"tempMax":285.93,"tempMin":283.71,"wind_speed":1.5,"cityName":"\"Provincia di Rimini\"","lat":44.02,"lon":12.52}
+{"dt":1609684800,"clouds":20.0,"temp":284.77,"feels_like":282.51,"tempMax":285.93,"tempMin":283.15,"wind_speed":1.5,"cityName":"\"Provincia di Rimini\"","lat":44.02,"lon":12.52}
+{"dt":1609691770,"clouds":0.0,"temp":282.39,"feels_like":280.23,"tempMax":283.71,"tempMin":280.37,"wind_speed":1.0,"cityName":"\"Provincia di Rimini\"","lat":44.02,"lon":12.52}

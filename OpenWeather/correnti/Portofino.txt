@@ -1,1 +1,6 @@
 {"dt":1609676370,"clouds":93.0,"temp":281.62,"feels_like":279.31,"tempMax":282.59,"tempMin":280.93,"wind_speed":2.12,"cityName":"\"Portofino\"","lat":44.3,"lon":9.21}
+{"dt":1609682718,"clouds":100.0,"temp":280.9,"feels_like":278.63,"tempMax":281.48,"tempMin":280.37,"wind_speed":1.8,"cityName":"\"Portofino\"","lat":44.3,"lon":9.21}
+{"dt":1609682718,"clouds":100.0,"temp":280.9,"feels_like":278.63,"tempMax":281.48,"tempMin":280.37,"wind_speed":1.8,"cityName":"\"Portofino\"","lat":44.3,"lon":9.21}
+{"dt":1609683839,"clouds":100.0,"temp":280.0,"feels_like":277.58,"tempMax":280.93,"tempMin":279.26,"wind_speed":1.8,"cityName":"\"Portofino\"","lat":44.3,"lon":9.21}
+{"dt":1609684898,"clouds":100.0,"temp":280.56,"feels_like":277.53,"tempMax":280.93,"tempMin":280.37,"wind_speed":2.78,"cityName":"\"Portofino\"","lat":44.3,"lon":9.21}
+{"dt":1609691771,"clouds":100.0,"temp":279.66,"feels_like":277.75,"tempMax":280.93,"tempMin":278.15,"wind_speed":0.89,"cityName":"\"Portofino\"","lat":44.3,"lon":9.21}
