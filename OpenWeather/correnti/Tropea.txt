@@ -1,0 +1,1 @@
+{"dt":1609676370,"clouds":20.0,"temp":283.76,"feels_like":280.56,"tempMax":289.15,"tempMin":277.59,"wind_speed":1.5,"cityName":"\"Tropea\"","lat":38.68,"lon":15.89}

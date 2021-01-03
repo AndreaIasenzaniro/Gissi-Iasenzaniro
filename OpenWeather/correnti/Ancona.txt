@@ -1,0 +1,1 @@
+{"dt":1609676079,"clouds":94.0,"temp":284.19,"feels_like":282.14,"tempMax":285.37,"tempMin":282.04,"wind_speed":2.6,"cityName":"\"Provincia di Ancona\"","lat":43.55,"lon":13.17}

@@ -1,0 +1,1 @@
+{"dt":1609676370,"clouds":12.0,"temp":288.0,"feels_like":288.85,"tempMax":288.0,"tempMin":288.0,"wind_speed":1.01,"cityName":"\"Amalfi\"","lat":6.91,"lon":-75.08}

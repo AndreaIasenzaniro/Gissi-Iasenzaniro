@@ -1,0 +1,1 @@
+{"dt":1609676183,"clouds":40.0,"temp":282.14,"feels_like":280.38,"tempMax":283.15,"tempMin":281.48,"wind_speed":1.5,"cityName":"\"Provincia di Cagliari\"","lat":39.24,"lon":9.09}

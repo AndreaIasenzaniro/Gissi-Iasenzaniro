@@ -1,0 +1,1 @@
+{"dt":1609676213,"clouds":0.0,"temp":285.01,"feels_like":280.45,"tempMax":285.37,"tempMin":283.71,"wind_speed":4.6,"cityName":"\"Provincia di Rimini\"","lat":44.02,"lon":12.52}

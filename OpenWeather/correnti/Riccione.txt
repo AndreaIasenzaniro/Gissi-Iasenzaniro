@@ -1,0 +1,1 @@
+{"dt":1609676127,"clouds":0.0,"temp":284.98,"feels_like":280.41,"tempMax":285.37,"tempMin":284.82,"wind_speed":4.6,"cityName":"\"Riccione\"","lat":44.01,"lon":12.64}

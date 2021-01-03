@@ -6,10 +6,12 @@ package com.gisias.OpenWeather.service;
 import java.io.*;
 import java.util.Vector;
 
+import org.json.simple.JSONObject;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.gisias.OpenWeather.model.Weather;
+import com.gisias.OpenWeather.util.Deserialize;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -46,6 +48,17 @@ public class Methods {
 		try {
 			FileWriter output = new FileWriter(path+"/"+nomefile+".txt",true);
 				output.write(weather);
+				output.write("\n");
+			output.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	static void fileWriter2(JSONObject weather, String path, String nomefile) {
+		try {
+			FileWriter output = new FileWriter(path+"/"+nomefile+".txt",true);
+				output.write(weather.toString());
+				output.write("\n");
 			output.close();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -54,13 +67,20 @@ public class Methods {
 	@Scheduled(cron="0 0 * * * *")
 	public static void writeCurrent() {
 		for(String c : getCities()) {
-			fileWriter(Parser.currentParser(c), "correnti", c+"cur");
+			fileWriter(Parser.currentParser(c), "correnti", c);
 		}
 	}
 	
 	public static void writeForecast() {
 		for(String c : getCities()) {
-			fileWriter(Parser.forecastParser(c), "previsionali", c+"forec");
+			fileWriter(Parser.forecastParser(c), "previsionali", c);
 		}
 	}
+	
+	public static void writeprova() {
+		//for(String c : getCities()) {
+			fileWriter2(Deserialize.deserialize("Termoli",(long) 1609676369), "prova", "Termoli");
+		//}
+	}
+	
 }

@@ -1,0 +1,1 @@
+{"dt":1609676370,"clouds":93.0,"temp":281.62,"feels_like":279.31,"tempMax":282.59,"tempMin":280.93,"wind_speed":2.12,"cityName":"\"Portofino\"","lat":44.3,"lon":9.21}

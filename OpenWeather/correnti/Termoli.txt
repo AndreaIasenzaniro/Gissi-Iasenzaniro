@@ -1,0 +1,1 @@
+{"dt":1609676369,"clouds":100.0,"temp":283.15,"feels_like":276.76,"tempMax":283.15,"tempMin":283.15,"wind_speed":6.71,"cityName":"\"Termoli\"","lat":41.99,"lon":14.99}

@@ -24,7 +24,6 @@ public class Serializer {
 	 */
 	public static String currentSerializer(String toSerialize) {
 		Weather weather = new Weather();
-		
 		JsonElement jelement = new JsonParser().parse(toSerialize);
 	    JsonObject  wth = jelement.getAsJsonObject();
 	    weather.setCityName(wth.get("name").toString());
@@ -41,6 +40,8 @@ public class Serializer {
 	    JsonObject coord = wth.getAsJsonObject("coord");
 	    weather.setLat(coord.get("lat").getAsDouble());
 	    weather.setLon(coord.get("lon").getAsDouble());
+	    
+		
 	    
 	    Gson gson = new Gson();
 		String weath = gson.toJson(weather);
