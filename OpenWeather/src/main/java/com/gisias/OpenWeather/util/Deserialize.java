@@ -21,35 +21,35 @@ public class Deserialize {
 		
 		try {
 			BufferedReader bufRead = new BufferedReader( new FileReader(path+"/"+cityName+".txt"));
-			while((line = bufRead.readLine()) != null) {
-				Gson gson = new Gson();
-				Weather weather = gson.fromJson(line, Weather.class);
-				JSONObject jo = new JSONObject();
+			line = bufRead.readLine();
+			while(line != null) {
 				JSONParser parser = new JSONParser();
 				if(!"".equals(line)){
-				if(weather!=null) {
-					if(weather.getDt()==dt) {
-						jo.put("tempMax",weather.getTempMax());
-						jo.put("tempMin",weather.getTempMin());
-						jo.put("feels_like",weather.getFeels_like());
-						return jo;
+					Gson gson = new Gson();
+					Weather weather = gson.fromJson(line, Weather.class);
+					JSONObject jo = new JSONObject();				
+					if(weather!=null) {
+						if(weather.getDt()==dt) {
+							jo.put("cityName", weather.getCityName());
+							jo.put("tempMax",weather.getTempMax());
+							jo.put("tempMin",weather.getTempMin());
+							jo.put("feels_like",weather.getFeels_like());
+							return jo;
+						}
+						else {
+							line = bufRead.readLine();
+						}
 					}
 					else {
-						result+=line;
-						JSONObject obj =(JSONObject)parser.parse(result);
-						return obj;
+						line=bufRead.readLine();
 					}
 				}
 				else {
-					result+=line;
-					parser.parse(result);
-					JSONObject obj =(JSONObject)parser.parse(result);
-					return obj;
+					line = bufRead.readLine();
 				}
 			}
-			}
 			bufRead.close();
-		}catch(IOException | ParseException e) {
+		}catch(IOException e) {
 			e.printStackTrace();
 		}
 		return null;
