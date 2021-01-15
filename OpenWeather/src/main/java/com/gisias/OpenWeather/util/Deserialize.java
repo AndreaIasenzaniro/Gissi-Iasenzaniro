@@ -8,7 +8,7 @@ import com.gisias.OpenWeather.model.Weather;
 import com.google.gson.Gson;
 
 
-public class Deserialize {
+public class Deserialize extends Stats_Filter{
 
 	@SuppressWarnings("unchecked")
 	public static  JSONObject deserialize(String cityName, Long dt) {
@@ -26,8 +26,8 @@ public class Deserialize {
 					Weather weather = gson.fromJson(line, Weather.class);
 					JSONObject jo = new JSONObject();				
 					if(weather!=null) {
-						String data=ForStats.DataConverter(weather.getDt());
-						String data2 =ForStats.DataConverter(dt);
+						String data=DataConverter(weather.getDt());
+						String data2 =DataConverter(dt);
 						//if(weather.getDt()==dt) {
 						if(data.equals(data2)) {
 							jo.put("cityName", weather.getCityName());

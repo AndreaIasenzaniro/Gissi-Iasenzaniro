@@ -10,15 +10,9 @@ import org.json.simple.JSONObject;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import com.gisias.OpenWeather.model.Weather;
 import com.gisias.OpenWeather.util.Deserialize;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 /**
- * Interfaccia che contiene metodi necessari all'implementazione del progetto
+ * Classe che contiene metodi necessari all'implementazione del progetto
  * 
  * @author aiasenzaniro
  *
@@ -70,7 +64,6 @@ public class Methods {
 			fileWriter(Parser.currentParser(c), "correnti", c);
 		}
 	}
-	
 	public static void writeForecast() {
 		for(String c : getCities()) {
 			fileWriter(Parser.forecastParser(c), "previsionali", c);
