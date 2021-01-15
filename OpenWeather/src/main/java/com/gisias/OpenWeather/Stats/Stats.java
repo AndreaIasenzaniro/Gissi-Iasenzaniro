@@ -9,19 +9,19 @@ public class Stats extends Stats_Filter {
 	/**
 	 * 
 	 */
-	double max;
+	protected double max;
 	/**
 	 * 
 	 */
-	double min;
+	protected double min;
 	/**
 	 * 
 	 */
-	double avg;
+	protected double avg;
 	/**
 	 * 
 	 */
-	double variance;
+	protected double variance;
 	/**
 	 * @param max
 	 * @param min

@@ -20,7 +20,7 @@ import com.gisias.OpenWeather.util.Deserialize;
 @Service
 public class Methods {
 	
-	static Vector<String> getCities(){
+	protected static Vector<String> getCities(){
 		Vector<String> citta = new Vector<String>();
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("citta.txt"));
@@ -38,7 +38,7 @@ public class Methods {
 		}
 	}
 	
-	static void fileWriter(String weather, String path, String nomefile) {
+	protected static void fileWriter(String weather, String path, String nomefile) {
 		try {
 			FileWriter output = new FileWriter(path+"/"+nomefile+".txt",true);
 				output.write(weather);
