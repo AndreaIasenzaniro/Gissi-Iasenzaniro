@@ -59,8 +59,5 @@ public class TempFilter {
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
-	public JsonObject parseTempStats() {
-		return null;
-	}
 	
 }

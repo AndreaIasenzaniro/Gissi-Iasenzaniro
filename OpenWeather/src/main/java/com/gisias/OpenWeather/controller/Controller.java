@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.service.DataBaseImpl;
 import com.gisias.OpenWeather.util.StatsFilter;

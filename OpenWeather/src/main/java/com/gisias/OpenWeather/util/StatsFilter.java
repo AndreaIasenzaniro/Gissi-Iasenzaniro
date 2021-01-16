@@ -11,6 +11,7 @@ import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.Stats.Stats;
 import com.gisias.OpenWeather.model.Weather;
 import com.gisias.OpenWeather.service.Methods;
+import com.google.gson.Gson;
 
 /**
  * @author aiasenzaniro
@@ -21,14 +22,14 @@ public class StatsFilter {
     
     public String getTempFilter(TempFilter filter) throws Exception  {
     	
-    	Date data1=Methods.StringToDate(filter.getInInstant());
-    	Date data2=Methods.StringToDate(filter.getFinInstant());
+    	Long data1=Methods.StringToDate(filter.getInInstant());
+    	Long data2=Methods.StringToDate(filter.getFinInstant());
     	Vector<Double>tempMax=new Vector<Double>();
     	Vector<Double>tempMin=new Vector<Double>();
     	Vector<Double>temp=new Vector<Double>();
     	Vector<Weather> deserialized =Deserialize.deserializeCurrent(filter.getCityName());
     	for(Weather weath: deserialized) {
-    		if(data1.after(Methods.DataConverter(weath.getDt())) && data2.before(Methods.DataConverter(weath.getDt()))) {
+    		if(data1<weath.getDt() && data2>weath.getDt()) {
     			temp.add(weath.getTemp());
     			tempMax.add(weath.getTempMax());
     			tempMin.add(weath.getTempMin());
@@ -42,10 +43,10 @@ public class StatsFilter {
     	Double avg=Stats.avgCalculate(temp);
     	Double variance=Stats.varianceCalculate(temp);
     	
+    	Gson gson = new Gson();
     	Stats stats = new Stats(tMax,tMin,avg,variance);
-    	return stats.toString();
-    	//JsonObject jelement = (JsonObject) new JsonParser().parse(stats.toString());
-    	//return jelement.toString();
+    	String StatsSetJson = gson.toJson(stats);
+    	return StatsSetJson;
     	
     }
    

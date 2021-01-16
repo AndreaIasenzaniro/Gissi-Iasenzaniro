@@ -90,7 +90,8 @@ public class Stats extends StatsFilter {
 		for(int i=0; i< values.size(); i++) {
 			sum += values.elementAt(i);
 		}
-		return sum/values.size();
+		double risp = sum/values.size();
+		return (double)Math.round(risp*100d)/100d;
 	}
 	/**
 	 * @param v
@@ -101,7 +102,8 @@ public class Stats extends StatsFilter {
 		double sommaScartiQuad = 0;
 		for(int i=0; i<v.size(); i++)
 			sommaScartiQuad += (v.elementAt(i)-m)*(v.elementAt(i)-m);
-		return sommaScartiQuad/v.size();
+		double risp = sommaScartiQuad/v.size();
+		return (double)Math.round(risp*100d)/100d;
 	}
 	/**
 	 * @param values

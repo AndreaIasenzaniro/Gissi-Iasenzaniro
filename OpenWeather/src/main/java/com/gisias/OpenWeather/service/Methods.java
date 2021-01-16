@@ -6,6 +6,8 @@ package com.gisias.OpenWeather.service;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Vector;
@@ -26,21 +28,14 @@ import com.google.gson.JsonArray;
 @Service
 public class Methods {
 	
-	public static Date DataConverter(Long milliseconds) {
-        Date date = new Date(milliseconds*1000L);
-        return date;
-    }
+	
+	public static Long StringToDate(String date) throws ParseException {
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Instant data = df.parse(date).toInstant();
+		long epoch = data.getEpochSecond();
+		return epoch;
+   }
     
-    public static Date StringToDate(String date) {
-         try {
-             DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
-             Date myDate = (Date) dateFormat.parse(date);
-             return myDate;
-            } catch (ParseException e) {
-              e.printStackTrace();
-              return null;
-            }
-    }
 	
 	protected static Vector<String> getCities(){
 		Vector<String> citta = new Vector<String>();
