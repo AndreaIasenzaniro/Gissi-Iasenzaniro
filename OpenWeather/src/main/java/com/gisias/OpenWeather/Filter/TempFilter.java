@@ -11,9 +11,9 @@ import com.google.gson.JsonObject;
  */
 public class TempFilter {
 	
-	String inInstant;
-	String finInstant;
-	String cityName;
+	protected String inInstant;
+	protected String finInstant;
+	protected String cityName;
 	/**
 	 * @param inInstant
 	 * @param finInstant
