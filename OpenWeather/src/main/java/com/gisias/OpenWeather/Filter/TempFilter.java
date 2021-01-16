@@ -10,16 +10,15 @@ import com.google.gson.JsonObject;
  *
  */
 public class TempFilter {
-	
+	protected String cityName;
 	protected String inInstant;
 	protected String finInstant;
-	protected String cityName;
 	/**
 	 * @param inInstant
 	 * @param finInstant
 	 * @param cityName
 	 */
-	public TempFilter(String inInstant, String finInstant, String cityName) {
+	public TempFilter(String cityName, String inInstant, String finInstant) {
 		this.inInstant = inInstant;
 		this.finInstant = finInstant;
 		this.cityName = cityName;

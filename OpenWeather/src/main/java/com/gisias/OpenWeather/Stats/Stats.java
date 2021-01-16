@@ -2,9 +2,9 @@ package com.gisias.OpenWeather.Stats;
 
 import java.util.*;
 
-import com.gisias.OpenWeather.util.Stats_Filter;
+import com.gisias.OpenWeather.util.StatsFilter;
 
-public class Stats extends Stats_Filter {
+public class Stats extends StatsFilter {
 	
 	/**
 	 * 
@@ -85,7 +85,7 @@ public class Stats extends Stats_Filter {
 	/**
 	 * @param values
 	 */
-	public double avgCalculate(Vector<Double>values) {
+	public static double avgCalculate(Vector<Double>values) {
 		double sum=0;
 		for(int i=0; i< values.size(); i++) {
 			sum += values.elementAt(i);
@@ -96,14 +96,18 @@ public class Stats extends Stats_Filter {
 	 * @param v
 	 * @return
 	 */
-	public double varianceCalculate(Vector<Double>v) {
+	public static double varianceCalculate(Vector<Double>v) {
 		double m = avgCalculate(v);
 		double sommaScartiQuad = 0;
 		for(int i=0; i<v.size(); i++)
 			sommaScartiQuad += (v.elementAt(i)-m)*(v.elementAt(i)-m);
 		return sommaScartiQuad/v.size();
 	}
-	public double getMaxVal(Vector<Double>values) {
+	/**
+	 * @param values
+	 * @return
+	 */
+	public static double getMaxVal(Vector<Double>values) {
 		double max=values.elementAt(0);
 		for(int i=0; i<values.size(); i++) {
 			double temp=values.elementAt(i);
@@ -117,7 +121,7 @@ public class Stats extends Stats_Filter {
 	 * @param values
 	 * @return
 	 */
-	public double getMinVal(Vector<Double>values) {
+	public static double getMinVal(Vector<Double>values) {
 		double max=values.elementAt(0);
 		for(int i=0; i<values.size(); i++) {
 			double temp=values.elementAt(i);

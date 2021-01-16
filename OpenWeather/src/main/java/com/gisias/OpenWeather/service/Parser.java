@@ -12,7 +12,7 @@ import org.json.simple.parser.JSONParser;
 
 import com.gisias.OpenWeather.model.Data;
 import com.gisias.OpenWeather.model.Weather;
-import com.gisias.OpenWeather.util.Serializer;
+import com.gisias.OpenWeather.util.Serialize;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -46,7 +46,7 @@ public class Parser {
 				e.printStackTrace();
 			}finally {
 			}
-			return Serializer.currentSerializer(result);
+			return Serialize.currentSerializer(result);
 		} catch(Exception e){
 			e.printStackTrace();
 			return null;
@@ -81,7 +81,7 @@ public class Parser {
 			}finally {
 				input.close();
 			}
-			return Serializer.forecastSerializer(result, cityname);
+			return Serialize.forecastSerializer(result, cityname);
 	       }catch(Exception e) {
 	    	   e.printStackTrace();
 	       }

@@ -4,13 +4,19 @@
 package com.gisias.OpenWeather.service;
 
 import java.io.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Vector;
 
 import org.json.simple.JSONObject;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import com.gisias.OpenWeather.model.Weather;
 import com.gisias.OpenWeather.util.Deserialize;
+import com.google.gson.JsonArray;
 /**
  * Classe che contiene metodi necessari all'implementazione del progetto
  * 
@@ -19,6 +25,22 @@ import com.gisias.OpenWeather.util.Deserialize;
  */
 @Service
 public class Methods {
+	
+	public static Date DataConverter(Long milliseconds) {
+        Date date = new Date(milliseconds*1000L);
+        return date;
+    }
+    
+    public static Date StringToDate(String date) {
+         try {
+             DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
+             Date myDate = (Date) dateFormat.parse(date);
+             return myDate;
+            } catch (ParseException e) {
+              e.printStackTrace();
+              return null;
+            }
+    }
 	
 	protected static Vector<String> getCities(){
 		Vector<String> citta = new Vector<String>();
@@ -48,7 +70,7 @@ public class Methods {
 			e.printStackTrace();
 		}
 	}
-	static void fileWriter2(JSONObject weather, String path, String nomefile) {
+	static void fileWriter2(Vector<Weather> weather, String path, String nomefile) {
 		try {
 			FileWriter output = new FileWriter(path+"/"+nomefile+".txt",true);
 				output.write(weather.toString());
@@ -70,10 +92,8 @@ public class Methods {
 		}
 	}
 	
-	public static void writeprova() {
-		//for(String c : getCities()) {
-			fileWriter2(Deserialize.deserialize("Termoli",(long) 1609682399), "prova", "Termoli");
-		//}
+	/*public static void writeprova() {
+			fileWriter2(Deserialize.deserializeCurrent("Termoli", "correnti"),"prova", "Termoli");
 	}
-	
+	*/
 }

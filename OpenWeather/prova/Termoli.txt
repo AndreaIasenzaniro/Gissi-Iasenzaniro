@@ -1,1 +1,0 @@
-{"tempMax":282.59,"cityName":"\"Termoli\"","feels_like":277.25,"tempMin":282.59}

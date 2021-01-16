@@ -20,7 +20,7 @@ public class OpenWeatherApplication {
 		 * Metodo che ci ha permesso di effettuare chiamate a Forecast ApiRest
 		 */
 		//Methods.writeForecast();	
-		Methods.writeprova();
+		//Methods.writeprova();
 	}
 
 }

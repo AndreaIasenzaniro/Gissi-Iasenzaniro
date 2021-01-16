@@ -16,8 +16,7 @@ import com.google.gson.JsonParser;
  * @author aiasenzaniro
  *
  */
-public class Serializer {
-	
+public class Serialize {
 	/**
 	 * @param toSerialize
 	 * @return
