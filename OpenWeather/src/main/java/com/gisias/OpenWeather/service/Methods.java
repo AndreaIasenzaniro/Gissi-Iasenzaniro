@@ -4,21 +4,12 @@
 package com.gisias.OpenWeather.service;
 
 import java.io.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Vector;
 
-import org.json.simple.JSONObject;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.gisias.OpenWeather.model.Weather;
-import com.gisias.OpenWeather.util.Deserialize;
-import com.google.gson.JsonArray;
 /**
  * Classe che contiene metodi necessari all'implementazione del progetto
  * 

@@ -38,8 +38,10 @@ public class DataBaseImpl extends DataBase {
 		metadata.add(new MetaData("finInstant", "Fine intervallo di ricerca nel formato dd/MM/yy HH:mm:ss", "String"));
 		metadata.add(new MetaData("max", "temperatura massima nell'intervallo richiesto", "double"));
 		metadata.add(new MetaData("min", "temperatura minima nell'intervallo richiesto", "double"));
-		metadata.add(new MetaData("avg", "media delle temperature nell'intervallo richiesto", "double"));
-		metadata.add(new MetaData("variance", "varianza delle temperature nell'intervallo richiesto", "double"));
+		metadata.add(new MetaData("realAvg", "media delle temperature reali nell'intervallo richiesto", "double"));
+		metadata.add(new MetaData("realVariance", "varianza delle temperature reali nell'intervallo richiesto", "double"));
+		metadata.add(new MetaData("feelAvg", "media delle temperature percepite nell'intervallo richiesto", "double"));
+		metadata.add(new MetaData("feelVariance", "varianza delle temperature percepite nell'intervallo richiesto", "double"));
 		return metadata;
 	}
 	/**

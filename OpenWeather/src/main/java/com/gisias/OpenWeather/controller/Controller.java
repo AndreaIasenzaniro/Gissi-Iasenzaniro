@@ -9,9 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.service.DataBaseImpl;
+import com.gisias.OpenWeather.service.Parser;
 import com.gisias.OpenWeather.util.StatsFilter;
 
 /**
@@ -37,7 +39,15 @@ public class Controller {
 	public ResponseEntity<Object> getMetaData(){
 		return new ResponseEntity<>(databaseimpl.parsMetaData(databaseimpl.getMetaData()), HttpStatus.OK);
 	}
-	
+	/**
+	 * Rotta che consente di visualizzare previsione attuale di una città
+	 * @param name nome della città da ricercare
+	 * @return Stringa dell'oggetto Weather in formato Json
+	 */
+	@GetMapping("/current")
+	public ResponseEntity<Object> currentParser(@RequestParam(value="name") String name){
+		return new ResponseEntity<>(Parser.currentParser(name), HttpStatus.OK);
+	}
 	/**
 	 * Rotta che permette di ottenere statistiche filtrate per durata, di una città scelta
 	 * @param filter oggetto di tipo filter che contiene città e intervallo di ricerca

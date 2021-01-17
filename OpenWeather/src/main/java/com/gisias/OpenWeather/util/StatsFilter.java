@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.Stats.Stats;
 import com.gisias.OpenWeather.model.Weather;
-import com.gisias.OpenWeather.service.Methods;
 import com.google.gson.Gson;
 
 /**
@@ -72,7 +71,7 @@ public class StatsFilter {
      * @throws ParseException
      */
     public static Long StringToDate(String date) throws ParseException {
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		Instant data = df.parse(date).toInstant();
 		long epoch = data.getEpochSecond();
 		return epoch;
