@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import com.gisias.OpenWeather.model.Weather;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 /**
  * Classe che effettua la deserializzazione di un file in formato Json
@@ -15,8 +16,7 @@ import com.google.gson.Gson;
  * @author CarloGissi
  *
  */
-public class Deserialize extends StatsFilter{
-	
+public class Deserialize {
 	/**
 	 * Metodo che deserializza file contenente dati relativi alle Current Api
 	 * @param cityName nome del file della città da deserializzare
@@ -41,4 +41,24 @@ public class Deserialize extends StatsFilter{
 			return null;
 		}
 	}
+	/**
+	 * Metodo che deserializza file contenente dati relativi alle Current Api
+	 * @param cityName nome del file della città da deserializzare
+	 * @return vettore di tipo weather relativo alla città deserializzata
+	 */
+	public static Vector<Weather> deserializeForecast(String cityName) {
+		String path="previsionali";
+		try {
+			BufferedReader bufRead = new BufferedReader(new FileReader(path+"/"+cityName+".txt"));
+		
+			Vector<Weather> wth = new Gson().fromJson(bufRead, new TypeToken<Vector<Weather>>() {}.getType());
+			bufRead.close();
+			    
+			return wth;
+		}catch(IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }

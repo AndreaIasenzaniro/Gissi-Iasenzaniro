@@ -18,7 +18,7 @@ import com.google.gson.Gson;
  *
  */
 @Service
-public class DataBaseImpl extends DataBase {
+public class DataBaseImpl implements DataBase {
 
 	static Vector<MetaData> metadata = new Vector<MetaData>();
 	/**

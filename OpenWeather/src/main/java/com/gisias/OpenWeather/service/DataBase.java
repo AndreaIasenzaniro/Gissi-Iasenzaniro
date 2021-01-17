@@ -13,9 +13,18 @@ import com.gisias.OpenWeather.model.MetaData;
  * @author CarloGissi
  *
  */
-public abstract class DataBase {
+public interface DataBase {
 	
-	public abstract Vector<MetaData> getMetaData();
-	public abstract String parsMetaData(Vector<MetaData> metadata);
+	/**
+	 * Dichiarazione metodo astratto che restituisce MetaDEata
+	 * @return
+	 */
+	public Vector<MetaData> getMetaData();
+	/**
+	 * Dichiarazione metodo astratto che effettua parsing del vettore di MetaData
+	 * @param metadata
+	 * @return
+	 */
+	public String parsMetaData(Vector<MetaData> metadata);
 
 }

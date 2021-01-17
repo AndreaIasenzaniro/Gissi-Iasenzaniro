@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.service.DataBaseImpl;
 import com.gisias.OpenWeather.service.Parser;
-import com.gisias.OpenWeather.util.StatsFilter;
+import com.gisias.OpenWeather.service.StatsFilterImpl;
 
 /**
  * Controller dell'applicativo OpenWeather
@@ -29,10 +29,11 @@ public class Controller {
 	@Autowired
 	DataBaseImpl databaseimpl;
 	@Autowired
-	StatsFilter statsfilter;
+	StatsFilterImpl statsfilter;
 	
 	/**
 	 * Rotta che consente di interpretare il tipo dati forniti come risposta dal programma
+	 * 
 	 * @return oggetti di tipo MetaData in formato Json
 	 */
 	@GetMapping("/metadata")
@@ -40,7 +41,8 @@ public class Controller {
 		return new ResponseEntity<>(databaseimpl.parsMetaData(databaseimpl.getMetaData()), HttpStatus.OK);
 	}
 	/**
-	 * Rotta che consente di visualizzare previsione attuale di una città
+	 * Rotta che consente di visualizzare previsioni attuali di una città
+	 * 
 	 * @param name nome della città da ricercare
 	 * @return Stringa dell'oggetto Weather in formato Json
 	 */
@@ -50,13 +52,24 @@ public class Controller {
 	}
 	/**
 	 * Rotta che permette di ottenere statistiche filtrate per durata, di una città scelta
+	 * 
 	 * @param filter oggetto di tipo filter che contiene città e intervallo di ricerca
 	 * @return Stringa Json con i dati relativi alla temperatura massima, minima, media e varianza
 	 * @throws Exception
 	 */
-	@PostMapping("/stats")
+	@PostMapping("/currentstats")
+	public String getTempStats(@RequestBody TempFilter filter) throws Exception{
+		return statsfilter.getTempStats(filter);
+	}
+	/**
+	 * Rotta che restituisce previsioni orarie storiche di una data città, in un arco temporale definito dall'utente
+	 * 
+	 * @param filter
+	 * @return
+	 * @throws Exception
+	 */
+	@PostMapping("/currentfilter")
 	public String getTempFilter(@RequestBody TempFilter filter) throws Exception{
 		return statsfilter.getTempFilter(filter);
 	}
-
 }

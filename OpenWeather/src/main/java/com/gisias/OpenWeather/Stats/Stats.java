@@ -2,7 +2,7 @@ package com.gisias.OpenWeather.Stats;
 
 import java.util.*;
 
-import com.gisias.OpenWeather.util.StatsFilter;
+import com.gisias.OpenWeather.service.StatsFilterImpl;
 
 /**
  * Classe che crea un oggetto di tipo stats con i valori delle statistiche effettuate
@@ -11,7 +11,7 @@ import com.gisias.OpenWeather.util.StatsFilter;
  * @author CarloGissi
  *
  */
-public class Stats extends StatsFilter {
+public class Stats extends StatsFilterImpl {
 	
 	protected double max;
 	protected double min;
