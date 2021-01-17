@@ -4,7 +4,10 @@
 package com.gisias.OpenWeather.Filter;
 
 /**
- * @author aiasenzaniro
+ * Classe relatva al filtraggio di previsioni azzeccate
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 public class IndexFilter {

@@ -2,11 +2,11 @@
  * 
  */
 package com.gisias.OpenWeather.Filter;
-
-import com.google.gson.JsonObject;
-
 /**
- * @author aiasenzaniro
+ * Classe che permette di creare un filtro temporale
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 public class TempFilter {
@@ -14,9 +14,9 @@ public class TempFilter {
 	protected String inInstant;
 	protected String finInstant;
 	/**
-	 * @param inInstant
-	 * @param finInstant
-	 * @param cityName
+	 * @param inInstant data iniziale dell'intervallo
+	 * @param finInstant data finale dell'intervallo
+	 * @param cityName nome della città
 	 */
 	public TempFilter(String cityName, String inInstant, String finInstant) {
 		this.inInstant = inInstant;

@@ -4,7 +4,10 @@
 package com.gisias.OpenWeather.model;
 
 /**
- * @author aiasenzaniro
+ * Classe che permette di creare un oggetto metadata, relativo alle informazioni sui dati utilizzati
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 public class MetaData {
@@ -13,9 +16,9 @@ public class MetaData {
 	String sourceField;
 	String type;
 	/**
-	 * @param alias
-	 * @param sourceField
-	 * @param type
+	 * @param alias nome della variabile utilizzata
+	 * @param sourceField significato del nome della variabile
+	 * @param type tipo della variabile
 	 */
 	public MetaData(String alias, String sourceField, String type) {
 		Alias = alias;

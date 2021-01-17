@@ -4,35 +4,36 @@ import java.util.*;
 
 import com.gisias.OpenWeather.util.StatsFilter;
 
+/**
+ * Classe che crea un oggetto di tipo stats con i valori delle statistiche effettuate
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
+ *
+ */
 public class Stats extends StatsFilter {
 	
-	/**
-	 * 
-	 */
 	protected double max;
-	/**
-	 * 
-	 */
 	protected double min;
+	protected double realAvg;
+	protected double realVariance;
+	protected double feelAvg;
+	protected double feelVariance;
 	/**
-	 * 
+	 * @param max temperatura massima
+	 * @param min temperatura minima
+	 * @param avg media delle temperature reali
+	 * @param variance varianza delle temperature reali
+	 * @param feelAvg media delle temperature percepite
+	 * @param feelVariance varianza delle temperature percepite
 	 */
-	protected double avg;
-	/**
-	 * 
-	 */
-	protected double variance;
-	/**
-	 * @param max
-	 * @param min
-	 * @param avg
-	 * @param variance
-	 */
-	public Stats(double max, double min, double avg, double variance) {
+	public Stats(double max, double min, double realAvg, double realVariance, double feelAvg, double feelVariance) {
 		this.max = max;
 		this.min = min;
-		this.avg = avg;
-		this.variance = variance;
+		this.realAvg = realAvg;
+		this.realVariance = realVariance;
+		this.feelAvg = feelAvg;
+		this.feelVariance = feelVariance;
 	}
 	/**
 	 * @return the max
@@ -40,50 +41,88 @@ public class Stats extends StatsFilter {
 	public double getMax() {
 		return max;
 	}
+
 	/**
 	 * @param max the max to set
 	 */
 	public void setMax(double max) {
 		this.max = max;
 	}
+
 	/**
 	 * @return the min
 	 */
 	public double getMin() {
 		return min;
 	}
+
 	/**
 	 * @param min the min to set
 	 */
 	public void setMin(double min) {
 		this.min = min;
 	}
+
 	/**
-	 * @return the avg
+	 * @return the realAvg
 	 */
-	public double getAvg() {
-		return avg;
+	public double getRealAvg() {
+		return realAvg;
 	}
+
 	/**
-	 * @param avg the avg to set
+	 * @param realAvg the realAvg to set
 	 */
-	public void setAvg(double avg) {
-		this.avg = avg;
+	public void setRealAvg(double realAvg) {
+		this.realAvg = realAvg;
 	}
+
 	/**
-	 * @return the variance
+	 * @return the realVariance
 	 */
-	public double getVariance() {
-		return variance;
+	public double getRealVariance() {
+		return realVariance;
 	}
+
 	/**
-	 * @param variance the variance to set
+	 * @param realVariance the realVariance to set
 	 */
-	public void setVariance(double variance) {
-		this.variance = variance;
+	public void setRealVariance(double realVariance) {
+		this.realVariance = realVariance;
 	}
+
 	/**
-	 * @param values
+	 * @return the feelAvg
+	 */
+	public double getFeelAvg() {
+		return feelAvg;
+	}
+
+	/**
+	 * @param feelAvg the feelAvg to set
+	 */
+	public void setFeelAvg(double feelAvg) {
+		this.feelAvg = feelAvg;
+	}
+
+	/**
+	 * @return the feelVariance
+	 */
+	public double getFeelVariance() {
+		return feelVariance;
+	}
+
+	/**
+	 * @param feelVariance the feelVariance to set
+	 */
+	public void setFeelVariance(double feelVariance) {
+		this.feelVariance = feelVariance;
+	}
+
+	/**
+	 * Metodo che calcola la media dei valori di un Vettore di tipo double
+	 * @param values vettore di numeri dei quali viene calcolata la media
+	 * @return media dei valori contenuti nel vettore
 	 */
 	public static double avgCalculate(Vector<Double>values) {
 		double sum=0;
@@ -94,20 +133,22 @@ public class Stats extends StatsFilter {
 		return (double)Math.round(risp*100d)/100d;
 	}
 	/**
-	 * @param v
-	 * @return
+	 * Metodo che calcola la varianza dei valori di un Vettore di tipo double
+	 * @param values vettore di numeri dei quali viene calcolata la varianza
+	 * @return varianza dei valori contenuti nel vettore
 	 */
-	public static double varianceCalculate(Vector<Double>v) {
-		double m = avgCalculate(v);
+	public static double varianceCalculate(Vector<Double>values) {
+		double m = avgCalculate(values);
 		double sommaScartiQuad = 0;
-		for(int i=0; i<v.size(); i++)
-			sommaScartiQuad += (v.elementAt(i)-m)*(v.elementAt(i)-m);
-		double risp = sommaScartiQuad/v.size();
+		for(int i=0; i<values.size(); i++)
+			sommaScartiQuad += (values.elementAt(i)-m)*(values.elementAt(i)-m);
+		double risp = sommaScartiQuad/values.size();
 		return (double)Math.round(risp*100d)/100d;
 	}
 	/**
-	 * @param values
-	 * @return
+	 * Metodo che estrapola il valore massimo di un Vettore di double
+	 * @param values vettore di numeri da cui estrarre il massimo 
+	 * @return valore massimo del vattore
 	 */
 	public static double getMaxVal(Vector<Double>values) {
 		double max=values.elementAt(0);
@@ -120,8 +161,9 @@ public class Stats extends StatsFilter {
 		return max;
 	}
 	/**
-	 * @param values
-	 * @return
+	 * Metodo che estrapola il valore minimo di un Vettore di double
+	 * @param values vettore di numeri da cui estrarre il minimo
+	 * @return valore minimo del vettore
 	 */
 	public static double getMinVal(Vector<Double>values) {
 		double max=values.elementAt(0);

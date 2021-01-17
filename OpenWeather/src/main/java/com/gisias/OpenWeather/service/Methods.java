@@ -22,20 +22,12 @@ import com.google.gson.JsonArray;
 /**
  * Classe che contiene metodi necessari all'implementazione del progetto
  * 
- * @author aiasenzaniro
+ * @author AndreaIasenzaniro
+ * @author carloGissi
  *
  */
 @Service
 public class Methods {
-	
-	
-	public static Long StringToDate(String date) throws ParseException {
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		Instant data = df.parse(date).toInstant();
-		long epoch = data.getEpochSecond();
-		return epoch;
-   }
-    
 	
 	protected static Vector<String> getCities(){
 		Vector<String> citta = new Vector<String>();

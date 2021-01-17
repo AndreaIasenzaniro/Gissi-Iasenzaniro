@@ -13,13 +13,18 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 /**
- * @author aiasenzaniro
+ * Classe che contiene metodi che permettono di effettuare la serializzazione
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 public class Serialize {
 	/**
-	 * @param toSerialize
-	 * @return
+	 * Metodo che serializza un JsonObject popolando un oggetto di tipo Weather
+	 * 
+	 * @param toSerialize Stringa in ingresso da cui estrarre i campi da assegnare
+	 * @return Stringa in formato Json dell'oggetto serializzato
 	 */
 	public static String currentSerializer(String toSerialize) {
 		Weather weather = new Weather();

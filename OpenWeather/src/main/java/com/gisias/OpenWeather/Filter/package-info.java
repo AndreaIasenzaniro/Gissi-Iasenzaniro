@@ -1,8 +1,9 @@
 /**
- * 
+ * Package contenente le classi di filtraggio del programma
  */
 /**
- * @author aiasenzaniro
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 package com.gisias.OpenWeather.Filter;

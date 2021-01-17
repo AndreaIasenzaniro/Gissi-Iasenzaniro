@@ -19,10 +19,18 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+/**
+ * Classe che contiene metodi che effettuano il parsing Json
+ * 
+ * @author AndreaIasenzaniro
+ * @Author CarloGissi
+ *
+ */
 public class Parser {
 	/**
-	 * @param cityname
-	 * @return
+	 * Metodo che effettua il parsing di Current Api 
+	 * @param cityname nome della città di cui interrogare Api
+	 * @return Stringa serializzata delle informazioni della città 
 	 */
 	public static String currentParser(String cityname) {
 		
@@ -53,8 +61,11 @@ public class Parser {
 		}
 		
 	}
-	
-	
+	/**
+	 * Metodo che effettua il parsing di Forecast Api
+	 * @param cityname nome della città di cui interrogare le Api
+	 * @return Stringa serializzata delle informazioni della città
+	 */
 	public static String forecastParser(String cityname) {
 		
 		Data data= new Data(cityname);

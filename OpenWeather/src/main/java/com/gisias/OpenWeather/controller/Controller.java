@@ -15,7 +15,10 @@ import com.gisias.OpenWeather.service.DataBaseImpl;
 import com.gisias.OpenWeather.util.StatsFilter;
 
 /**
- * @author aiasenzaniro
+ * Controller dell'applicativo OpenWeather
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 @RestController
@@ -35,6 +38,12 @@ public class Controller {
 		return new ResponseEntity<>(databaseimpl.parsMetaData(databaseimpl.getMetaData()), HttpStatus.OK);
 	}
 	
+	/**
+	 * Rotta che permette di ottenere statistiche filtrate per durata, di una città scelta
+	 * @param filter oggetto di tipo filter che contiene città e intervallo di ricerca
+	 * @return Stringa Json con i dati relativi alla temperatura massima, minima, media e varianza
+	 * @throws Exception
+	 */
 	@PostMapping("/stats")
 	public String getTempFilter(@RequestBody TempFilter filter) throws Exception{
 		return statsfilter.getTempFilter(filter);

@@ -14,7 +14,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 /**
- * @author aiasenzaniro
+ * Classe ausiliaria che permette di ottenere coordinate di una città, dato il suo nome
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 public class Data {
@@ -23,7 +26,7 @@ public class Data {
 	double lat;
 	double lon;
 	/**
-	 * @param cityName
+	 * @param cityName nome della città
 	 */
 	public Data(String cityName) {
 		this.cityName = cityName;
@@ -71,6 +74,9 @@ public class Data {
 	public void setLon(double lon) {
 		this.lon = lon;
 	}
+	/**
+	 * Metodo che permette di popolare automaticamente le coordinate della città, dato il nome, nel costruttore della classe
+	 */
 	void getCoord() {
 		String APIKey = "820bf47a49c82ee50491d810263b4bd4";
 		String urlString ="http://api.openweathermap.org/data/2.5/weather?q="+ getCityName() + "&appid=" + APIKey;

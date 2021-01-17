@@ -6,7 +6,10 @@ package com.gisias.OpenWeather.model;
 import java.io.Serializable;
 
 /**
- * @author aiasenzaniro
+ * Classe che permette di creare oggetti di tipo weather, relativi alle informazioni meteorologiche di una città
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 @SuppressWarnings("serial")
@@ -20,14 +23,14 @@ public class Weather extends Data implements Serializable{
 	double tempMin;
 	double wind_speed;
 	/**
-	 * @param cityName
-	 * @param dt
-	 * @param clouds
-	 * @param temp
-	 * @param feels_like
-	 * @param tempMax
-	 * @param tempMin
-	 * @param wind_speed
+	 * @param cityName nome della città
+	 * @param dt data di acquisizione dei campioni meteo
+	 * @param clouds nuvolosità 
+	 * @param temp temperatura reale
+	 * @param feels_like temperatura percepita
+	 * @param tempMax temperatura massima
+	 * @param tempMin temperatura minima
+	 * @param wind_speed velocità del vento
 	 */
 	public Weather(String cityName, long dt, double clouds, double temp, double feels_like, double tempMax,
 			double tempMin, double wind_speed) {

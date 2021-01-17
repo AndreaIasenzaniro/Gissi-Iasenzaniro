@@ -7,7 +7,10 @@ import java.util.Vector;
 
 import com.gisias.OpenWeather.model.MetaData;
 /**
- * @author aiasenzaniro
+ * Classe astratta con metodi che consentono di ottenere MetaData
+ * 
+ * @author AndreaIasenzaniro
+ * @author CarloGissi
  *
  */
 public abstract class DataBase {
