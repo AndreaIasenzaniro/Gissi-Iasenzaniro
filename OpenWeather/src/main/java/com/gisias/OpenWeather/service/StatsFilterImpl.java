@@ -48,7 +48,7 @@ public class StatsFilterImpl extends StatsFilter{
     			feelTemp.add(weath.getFeels_like());
     		}
     		else {
-    			//Lancia eccezione per inserimento sbagliato delle date(try catch)
+    			//Lancia eccezione per inserimento sbagliato delle date(try cat
     		}
     	}
     	Double tMax=Stats.getMaxVal(tempMax);
@@ -79,7 +79,7 @@ public class StatsFilterImpl extends StatsFilter{
     	Vector<Weather> deserialized =Deserialize.deserializeCurrent(filter.getCityName());
     	Vector<Weather> trovati=new Vector<Weather>();
     	for(Weather weath: deserialized) {
-    		 {
+    		if(data1<weath.getDt() && data2>weath.getDt()) {
     			
     			trovati.add(weath);
     		}
@@ -97,29 +97,30 @@ public class StatsFilterImpl extends StatsFilter{
 		Long data1=StringToDate(filter.getInInstant());
     	Long data2=StringToDate(filter.getFinInstant());
     	
-    	Vector<Double>temp=new Vector<Double>();
+    	Vector<Weather> current = new Vector<Weather>();
+    	Vector<Weather> forecast = new Vector<Weather>();
     	
+    	//Vector<Weather> deserializeCurr =Deserialize.deserializeCurrent(filter.getCityName());
+    	Vector<Weather> deserializeCurr = Deserialize.oneForDay(filter.getCityName());
+    	Vector<Weather> deserializeFore =Deserialize.deserializeForecast(filter.getCityName());
     	
-    	Vector<Weather> deserializeCur =Deserialize.deserializeCurrent(filter.getCityName());
-    	Vector<Weather> deserializeFor =Deserialize.deserializeForecast(filter.getCityName());
-    	
-    	for(Weather weathCur : deserializeCur) {
-    		if(data1<weathCur.getDt() && data2>weathCur.getDt()) {
-    			for(Weather weathFor : deserializeFor) {
-    				if(data1<weathFor.getDt() && data2>weathFor.getDt()) {
-    					
-    					temp.add(weathCur.getTemp());
-    					Double tMax=Stats.getMaxVal(temp);
-    				}
+    	for(Weather weathCur : deserializeCurr) {
+    		for(data1=weathCur.getDt(); weathCur.getDt()==data2 ;StatsFilter.addDay(StatsFilter.unixToDate(weathCur.getDt()))) {
+    			
+    			Vector<Double>realTemp=new Vector<Double>();
+    	    	Vector<Double>feelTemp=new Vector<Double>();
+    	    	
+    			while(StatsFilter.matchDate(StatsFilter.unixToDate(weathCur.getDt()), StatsFilter.addDay(StatsFilter.unixToDate(weathCur.getDt())))){
+    				realTemp.add(weathCur.getTemp());
+    				feelTemp.add(weathCur.getFeels_like());
     			}
+    			Double realtemp = Stats.getMaxVal(realTemp);
+    	    	Double feeltemp = Stats.getMaxVal(feelTemp);
     		}
     	}
     	
     	
-    	
 	}
-    
-    
     
    
 }

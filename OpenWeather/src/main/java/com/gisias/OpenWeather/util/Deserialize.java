@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Vector;
 
 import com.gisias.OpenWeather.model.Weather;
+import com.gisias.OpenWeather.service.StatsFilter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -22,6 +23,7 @@ public class Deserialize {
 	 * @param cityName nome del file della città da deserializzare
 	 * @return vettore di tipo weather relativo alla città deserializzata
 	 */
+	@SuppressWarnings("resource")
 	public static Vector<Weather> deserializeCurrent(String cityName) {
 		String result="";
 		String line="";
@@ -39,6 +41,16 @@ public class Deserialize {
 		}catch(IOException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	public static Vector<Weather> oneForDay(Vector<Weather> current){
+		
+		
+		
+		for(int i=0; i<current.size(); i++) {
+			while(StatsFilter.matchDate(StatsFilter.unixToDate(current.get(i).getDt()), StatsFilter.unixToDate(current.get(i+1).getDt()))){
+				
+			}
 		}
 	}
 	/**
