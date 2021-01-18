@@ -72,4 +72,13 @@ public class Controller {
 	public String getTempFilter(@RequestBody TempFilter filter) throws Exception{
 		return statsfilter.getTempFilter(filter);
 	}
+	/**
+	 * @param filter
+	 * @return
+	 * @throws Exception
+	 */
+	@PostMapping("/index")
+	public String getIndexFilter(@RequestBody TempFilter filter) throws Exception{
+		return statsfilter.getIndexFilter(filter);
+	}
 }

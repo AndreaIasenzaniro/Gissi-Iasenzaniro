@@ -48,11 +48,10 @@ public class Methods {
 			e.printStackTrace();
 		}
 	}
-	static void fileWriter2(Vector<Weather> weather, String path, String nomefile) {
+	public static void fileWriter2(String stringa, String nomefile) {
 		try {
-			FileWriter output = new FileWriter(path+"/"+nomefile+".txt",true);
-				output.write(weather.toString());
-				output.write("\n");
+			FileWriter output = new FileWriter("prova/"+nomefile+".txt");
+				output.write(stringa);
 			output.close();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -70,8 +69,4 @@ public class Methods {
 		}
 	}
 	
-	/*public static void writeprova() {
-			fileWriter2(Deserialize.deserializeCurrent("Termoli", "correnti"),"prova", "Termoli");
-	}
-	*/
 }

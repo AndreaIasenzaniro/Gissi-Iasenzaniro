@@ -7,6 +7,8 @@ import java.util.*;
 
 import org.springframework.stereotype.Service;
 
+import com.gisias.OpenWeather.Filter.IndexFilter;
+import com.gisias.OpenWeather.Filter.ProvaWeatherFilter;
 import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.Stats.Stats;
 import com.gisias.OpenWeather.model.Weather;
@@ -91,36 +93,57 @@ public class StatsFilterImpl extends StatsFilter{
     	return filterJson;
     	
     }
+	/**
+	 *
+	 */
 	@Override
 	public String getIndexFilter(TempFilter filter) throws Exception {
 		
 		Long data1=StringToDate(filter.getInInstant());
     	Long data2=StringToDate(filter.getFinInstant());
     	
-    	Vector<Weather> current = new Vector<Weather>();
-    	Vector<Weather> forecast = new Vector<Weather>();
+    	String valutation="";
     	
-    	//Vector<Weather> deserializeCurr =Deserialize.deserializeCurrent(filter.getCityName());
-    	Vector<Weather> deserializeCurr = Deserialize.oneForDay(filter.getCityName());
+    	Vector<IndexFilter> index = new Vector<IndexFilter>();
+    	
+    	Vector<ProvaWeatherFilter> deserializeCurr = Deserialize.oneForDay(Deserialize.deserializeCurrent(filter.getCityName()));
     	Vector<Weather> deserializeFore =Deserialize.deserializeForecast(filter.getCityName());
     	
-    	for(Weather weathCur : deserializeCurr) {
-    		for(data1=weathCur.getDt(); weathCur.getDt()==data2 ;StatsFilter.addDay(StatsFilter.unixToDate(weathCur.getDt()))) {
-    			
-    			Vector<Double>realTemp=new Vector<Double>();
-    	    	Vector<Double>feelTemp=new Vector<Double>();
-    	    	
-    			while(StatsFilter.matchDate(StatsFilter.unixToDate(weathCur.getDt()), StatsFilter.addDay(StatsFilter.unixToDate(weathCur.getDt())))){
-    				realTemp.add(weathCur.getTemp());
-    				feelTemp.add(weathCur.getFeels_like());
+    	for(ProvaWeatherFilter prova: deserializeCurr) {
+    		for(Weather weather : deserializeFore) {
+    			if(StatsFilter.matchDate(StatsFilter.unixToDate(prova.getDt()), StatsFilter.unixToDate(weather.getDt()))) {
+    				
+    				double diff=prova.getTemp()-weather.getTemp();
+    				
+    				if((data2-data1)<86400*2) {
+    					if(diff<2 || diff>-2) {
+    						valutation="previsione accurata";
+    					}
+    					if(diff<5 || diff>-5) {
+    						valutation="previsione abbastanza accurata";
+    					}
+    					if(diff>5 || diff<-5) {
+    						valutation="previsione errata";
+    					}
+    				}
+    				if((data2-data1)<86400*4) {
+    					if(diff<2 || diff>-2) {
+    						valutation="previsione molto accurata";
+    					}
+    					if(diff<5 || diff>-5) {
+    						valutation="previsione accurata";
+    					}
+    					if(diff>5 || diff<-5) {
+    						valutation="previsione abbastanza accurata";
+    					}
+    				}
+    			IndexFilter filtered = new IndexFilter(diff,valutation);
+    			index.add(filtered);
     			}
-    			Double realtemp = Stats.getMaxVal(realTemp);
-    	    	Double feeltemp = Stats.getMaxVal(feelTemp);
     		}
     	}
-    	
+    	String result = new Gson().toJson(index);
+    	return result;
     	
 	}
-    
-   
 }
