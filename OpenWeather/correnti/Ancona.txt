@@ -179,4 +179,4 @@
 {"dt":1610254799,"clouds":90.0,"temp":275.67,"feels_like":273.36,"tempMax":277.15,"tempMin":274.26,"wind_speed":1.03,"cityName":"\"Provincia di Ancona\"","lat":43.55,"lon":13.1667}
 {"dt":1610258399,"clouds":90.0,"temp":275.83,"feels_like":273.19,"tempMax":277.15,"tempMin":274.26,"wind_speed":1.54,"cityName":"\"Provincia di Ancona\"","lat":43.55,"lon":13.1667}
 {"dt":1610261999,"clouds":90.0,"temp":275.95,"feels_like":273.69,"tempMax":277.15,"tempMin":274.82,"wind_speed":1.03,"cityName":"\"Provincia di Ancona\"","lat":43.55,"lon":13.1667}
-{"dt":1610816400,"clouds":71.0,"temp":276.37,"feels_like":272.87,"tempMax":278.15,"tempMin":273.15,"wind_speed":1.03,"cityName":"\"Provincia di Ancona\"","lat":43.55,"lon":13.1667}
+{"dt":1610992747,"clouds":48.0,"temp":277.03,"feels_like":274.42,"tempMax":277.59,"tempMin":276.48,"wind_speed":1.54,"cityName":"\"Provincia di Ancona\"","lat":43.55,"lon":13.1667}

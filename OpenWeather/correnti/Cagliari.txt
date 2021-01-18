@@ -179,4 +179,4 @@
 {"dt":1610254799,"clouds":40.0,"temp":285.08,"feels_like":283.16,"tempMax":285.93,"tempMin":284.15,"wind_speed":3.6,"cityName":"\"Provincia di Cagliari\"","lat":39.245,"lon":9.0912}
 {"dt":1610258129,"clouds":20.0,"temp":284.48,"feels_like":282.74,"tempMax":285.93,"tempMin":283.15,"wind_speed":3.09,"cityName":"\"Provincia di Cagliari\"","lat":39.245,"lon":9.0912}
 {"dt":1610261332,"clouds":40.0,"temp":284.49,"feels_like":283.11,"tempMax":285.93,"tempMin":283.15,"wind_speed":2.57,"cityName":"\"Provincia di Cagliari\"","lat":39.245,"lon":9.0912}
-{"dt":1610816118,"clouds":0.0,"temp":284.36,"feels_like":280.19,"tempMax":284.82,"tempMin":284.15,"wind_speed":4.12,"cityName":"\"Provincia di Cagliari\"","lat":39.245,"lon":9.0912}
+{"dt":1610992805,"clouds":20.0,"temp":284.63,"feels_like":282.86,"tempMax":285.15,"tempMin":284.15,"wind_speed":1.03,"cityName":"\"Provincia di Cagliari\"","lat":39.245,"lon":9.0912}

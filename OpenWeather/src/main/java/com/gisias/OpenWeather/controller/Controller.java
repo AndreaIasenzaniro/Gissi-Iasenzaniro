@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.gisias.OpenWeather.Filter.TempFilter;
+import com.gisias.OpenWeather.Filter.xxxxxx;
 import com.gisias.OpenWeather.service.DataBaseImpl;
 import com.gisias.OpenWeather.service.Parser;
 import com.gisias.OpenWeather.service.StatsFilterImpl;
@@ -47,8 +48,8 @@ public class Controller {
 	 * @return Stringa dell'oggetto Weather in formato Json
 	 */
 	@GetMapping("/current")
-	public ResponseEntity<Object> currentParser(@RequestParam(value="name") String name){
-		return new ResponseEntity<>(Parser.currentParser(name), HttpStatus.OK);
+	public ResponseEntity<Object> currentParser(@RequestParam(value="city") String city){
+		return new ResponseEntity<>(Parser.currentParser(city), HttpStatus.OK);
 	}
 	/**
 	 * Rotta che permette di ottenere statistiche filtrate per durata, di una città scelta
@@ -78,7 +79,7 @@ public class Controller {
 	 * @throws Exception
 	 */
 	@PostMapping("/index")
-	public String getIndexFilter(@RequestBody TempFilter filter) throws Exception{
+	public String getIndexFilter(@RequestBody xxxxxx filter) throws Exception{
 		return statsfilter.getIndexFilter(filter);
 	}
 }

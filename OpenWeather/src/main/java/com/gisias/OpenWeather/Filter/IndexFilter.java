@@ -11,43 +11,40 @@ package com.gisias.OpenWeather.Filter;
  *
  */
 public class IndexFilter{
-	//se errore da 0 a 4 in 1 giorni, valutazione pessima
-	//se errore da 0 a 4 in 3 giorni, valutazione buona
-	//se errore da 0 a 4 in 5 giorni, valutazione ottima
-	double errorMarg;
-	String valutation;
-	/**
-	 * @param errorMarg margine di errore delle previsioni
-	 * @param valutation valutazione sulla soglia di errore
-	 */
-	public IndexFilter(double errorMarg, String valutation) {
-		this.errorMarg = errorMarg;
-		this.valutation = valutation;
-	}
-	/**
-	 * @return the errorMarg
-	 */
-	public double getErrorMarg() {
-		return errorMarg;
-	}
-	/**
-	 * @param errorMarg the errorMarg to set
-	 */
-	public void setErrorMarg(double errorMarg) {
-		this.errorMarg = errorMarg;
-	}
-	/**
-	 * @return the valutation
-	 */
-	public String getValutation() {
-		return valutation;
-	}
-	/**
-	 * @param valutation the valutation to set
-	 */
-	public void setValutation(String valutation) {
-		this.valutation = valutation;
-	}
 	
+	String dt;
+	double temp;
+	/**
+	 * @param dt
+	 * @param temp
+	 */
+	public IndexFilter(String dt, double temp) {
+		this.dt = dt;
+		this.temp = temp;
+	}
+	/**
+	 * @return the dt
+	 */
+	public String getDt() {
+		return dt;
+	}
+	/**
+	 * @param dt the dt to set
+	 */
+	public void setDt(String dt) {
+		this.dt = dt;
+	}
+	/**
+	 * @return the temp
+	 */
+	public double getTemp() {
+		return temp;
+	}
+	/**
+	 * @param temp the temp to set
+	 */
+	public void setTemp(double temp) {
+		this.temp = temp;
+	}
 	
 }

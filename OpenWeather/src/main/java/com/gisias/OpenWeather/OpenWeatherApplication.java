@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.gisias.OpenWeather.service.Methods;
+import com.gisias.OpenWeather.service.StatsFilter;
 import com.gisias.OpenWeather.util.Deserialize;
+
 /**
  * Classe di bootstrap del nostro applicativo
  * 
@@ -17,7 +19,7 @@ import com.gisias.OpenWeather.util.Deserialize;
 @EnableScheduling
 public class OpenWeatherApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		SpringApplication.run(OpenWeatherApplication.class, args);
 		/*
 		 * Metodo che ci ha permesso di effettuare chiamate, a cadenza oraria, delle Current ApiRest
@@ -26,8 +28,11 @@ public class OpenWeatherApplication {
 		/*
 		 * Metodo che ci ha permesso di effettuare chiamate a Forecast ApiRest
 		 */
-		//Methods.writeForecast();	
-		Methods.fileWriter2(Deserialize.oneForDay(Deserialize.deserializeCurrent("Termoli")), "prova");
+		//Methods.writeForecast();
+		
+		
+		//Methods.fileWriter2(StatsFilter.oneForDay(Deserialize.deserializeCurrent("Termoli")), "prova");
+		
 	}
 
 }

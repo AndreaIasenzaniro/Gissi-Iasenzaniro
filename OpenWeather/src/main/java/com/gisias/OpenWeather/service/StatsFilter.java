@@ -3,12 +3,16 @@
  */
 package com.gisias.OpenWeather.service;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.*;
 
 import com.gisias.OpenWeather.Filter.TempFilter;
+import com.gisias.OpenWeather.Filter.xxxxxx;
+import com.gisias.OpenWeather.model.Weather;
+import com.google.gson.Gson;
 
 /**
  * Classe astratta che contiene dichiarazioni di metodi di filtraggio e applicazione filtri
@@ -42,6 +46,16 @@ public abstract class StatsFilter {
     	return date;
     }
     /**
+     * @param millis
+     * @return
+     */
+    protected static String unixToString(long millis) {
+    	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+    	Calendar cal = Calendar.getInstance();
+    	cal.setTimeInMillis(millis*1000L);
+    	return formato.format(cal.getTime());
+    }
+    /**
      * @param date
      * @return
      */
@@ -52,7 +66,7 @@ public abstract class StatsFilter {
     	return data.getTime();
     }
     /**
-     * Metodo che consente di confrontare due date in base al solo giorno
+     * Metodo che consente di confrontare due date in base al solo giorno della settimana
      * 
      * @param date1
      * @param date2
@@ -67,6 +81,26 @@ public abstract class StatsFilter {
 	                     cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR);
 	   return sameDay;
    }
+   /**
+    * @param current
+    * @return
+    */
+    public static Vector<Weather> oneForDay(Vector<Weather> current) {
+		
+		Vector<Weather> onefor = new Vector<Weather>();
+		Date date=new Date();
+		for(Weather weather : current) {
+			Date appoggio = unixToDate(weather.getDt());
+			if(matchDate(date,appoggio)) {
+				date=appoggio;				
+			}else {
+				onefor.add(weather);
+				date=appoggio;
+			}
+		}
+		
+		return onefor;
+	}
    /**
     * Dichiarazione metodo astratto per ottenere statistiche temporali
     * 
@@ -88,6 +122,6 @@ public abstract class StatsFilter {
      * @return
      * @throws Exception
      */
-    public abstract String getIndexFilter(TempFilter filter) throws Exception;
+    public abstract String getIndexFilter(xxxxxx filter) throws Exception;
 
 }

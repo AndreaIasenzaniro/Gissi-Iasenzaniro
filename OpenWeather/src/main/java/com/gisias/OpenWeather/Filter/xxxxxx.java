@@ -1,27 +1,22 @@
-/**
- * 
- */
 package com.gisias.OpenWeather.Filter;
-/**
- * Classe che permette di creare un filtro temporale
- * 
- * @author AndreaIasenzaniro
- * @author CarloGissi
- *
- */
-public class TempFilter {
+
+public class xxxxxx {
+
 	protected String cityName;
 	protected String inInstant;
 	protected String finInstant;
+	double errorMarg;
 	/**
-	 * @param inInstant data iniziale dell'intervallo
-	 * @param finInstant data finale dell'intervallo
-	 * @param cityName nome della città
+	 * @param cityName
+	 * @param inInstant
+	 * @param finInstant
+	 * @param errorMarg
 	 */
-	public TempFilter(String cityName, String inInstant, String finInstant) {
+	public xxxxxx(String cityName, String inInstant, String finInstant, double errorMarg) {
+		this.cityName = cityName;
 		this.inInstant = inInstant;
 		this.finInstant = finInstant;
-		this.cityName = cityName;
+		this.errorMarg = errorMarg;
 	}
 	/**
 	 * @return the inInstant
@@ -59,4 +54,17 @@ public class TempFilter {
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
+	/**
+	 * @return the errorMarg
+	 */
+	public double getErrorMarg() {
+		return errorMarg;
+	}
+	/**
+	 * @param errorMarg the errorMarg to set
+	 */
+	public void setErrorMarg(double errorMarg) {
+		this.errorMarg = errorMarg;
+	}
+	
 }

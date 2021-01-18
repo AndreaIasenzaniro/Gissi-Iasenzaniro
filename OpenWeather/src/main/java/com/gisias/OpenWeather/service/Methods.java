@@ -9,6 +9,7 @@ import java.util.Vector;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import com.gisias.OpenWeather.Filter.IndexFilter;
 import com.gisias.OpenWeather.model.Weather;
 /**
  * Classe che contiene metodi necessari all'implementazione del progetto
@@ -48,10 +49,10 @@ public class Methods {
 			e.printStackTrace();
 		}
 	}
-	public static void fileWriter2(String stringa, String nomefile) {
+	public static void fileWriter2(String filter, String nomefile) {
 		try {
 			FileWriter output = new FileWriter("prova/"+nomefile+".txt");
-				output.write(stringa);
+				output.write(filter);
 			output.close();
 		}catch(Exception e) {
 			e.printStackTrace();
