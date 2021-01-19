@@ -7,8 +7,10 @@ package com.gisias.OpenWeather.Exception;
  * Classe che gestisce l'eccezione lanciata in caso di città non presente nel dataset
  *
  */
+@SuppressWarnings("serial")
 public class CityNameException extends Exception {
-	 public CityNameException() {
+	 
+	public CityNameException() {
 		 super();
 	}
 	 

@@ -62,7 +62,7 @@ public class Methods {
 	/**
 	 * Metodo che scrive su file a cadenza oraria le previsioni correnti
 	 */
-	@Scheduled(cron="0 0 * * * *")
+	//@Scheduled(cron="0 0 * * * *")
 	public static void writeCurrent() {
 		for(String c : getCities()) {
 			fileWriter(Parser.currentParser(c), "correnti", c);
@@ -71,7 +71,7 @@ public class Methods {
 	/**
 	 * Metodo che scrive su file le previsioni future settimanali
 	 */
-	@Scheduled(fixedRate=10080*60*1000)
+	//@Scheduled(fixedRate=10080*60*1000)
 	public static void writeForecast() {
 		for(String c : getCities()) {
 			fileWriter(Parser.forecastParser(c), "previsionali", c);

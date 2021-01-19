@@ -20,16 +20,7 @@ public class OpenWeatherApplication {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(OpenWeatherApplication.class, args);
-		/*
-		 * Metodo che ci ha permesso di effettuare chiamate, a cadenza oraria, delle Current ApiRest
-		 */
-		//Methods.writeCurrent();
-		/*
-		 * Metodo che ci ha permesso di effettuare chiamate a Forecast ApiRest(cadenza settimanale)
-		 */
-		//Methods.writeForecast();
-		
-		
+				
 	}
 
 }

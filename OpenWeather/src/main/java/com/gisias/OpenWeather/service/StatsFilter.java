@@ -93,7 +93,6 @@ public abstract class StatsFilter {
 				date=appoggio;
 			}
 		}
-		
 		return onefor;
 	}
    /**
