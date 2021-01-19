@@ -16,6 +16,8 @@ import com.gisias.OpenWeather.Filter.IndexTempFilter;
 import com.gisias.OpenWeather.service.DataBaseImpl;
 import com.gisias.OpenWeather.service.Parser;
 import com.gisias.OpenWeather.service.StatsFilterImpl;
+import com.gisias.OpenWeather.util.Deserialize;
+import com.google.gson.Gson;
 
 /**
  * Controller dell'applicativo OpenWeather
@@ -69,7 +71,13 @@ public class Controller {
 	 */
 	@PostMapping("/currentfilter")
 	public String getTempFilter(@RequestBody TempFilter filter) throws Exception{
-		return statsfilter.getTempFilter(filter);
+		if(!(filter.getInInstant()=="") && !(filter.getFinInstant()=="")) {
+			return statsfilter.getTempFilter(filter);
+		}
+		else {
+			String stringa = new Gson().toJson(Deserialize.deserializeCurrent(filter.getCityName()));
+			return stringa;
+		}
 	}
 	/**
 	 * Rotta che consente di filtrare lo storico in base all'esattezza della previsione effettuata su un dato margine di errore
