@@ -3,8 +3,6 @@
  */
 package com.gisias.OpenWeather.model;
 
-import java.io.Serializable;
-
 /**
  * Classe che permette di creare oggetti di tipo weather, relativi alle informazioni meteorologiche di una città
  * 
@@ -12,8 +10,7 @@ import java.io.Serializable;
  * @author CarloGissi
  *
  */
-@SuppressWarnings("serial")
-public class Weather extends Data implements Serializable{
+public class Weather extends Data {
 
 	long dt;
 	double clouds;

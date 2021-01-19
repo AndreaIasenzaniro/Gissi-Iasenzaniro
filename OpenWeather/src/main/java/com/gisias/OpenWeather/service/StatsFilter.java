@@ -10,9 +10,8 @@ import java.time.Instant;
 import java.util.*;
 
 import com.gisias.OpenWeather.Filter.TempFilter;
-import com.gisias.OpenWeather.Filter.xxxxxx;
+import com.gisias.OpenWeather.Filter.IndexTempFilter;
 import com.gisias.OpenWeather.model.Weather;
-import com.google.gson.Gson;
 
 /**
  * Classe astratta che contiene dichiarazioni di metodi di filtraggio e applicazione filtri
@@ -54,16 +53,6 @@ public abstract class StatsFilter {
     	Calendar cal = Calendar.getInstance();
     	cal.setTimeInMillis(millis*1000L);
     	return formato.format(cal.getTime());
-    }
-    /**
-     * @param date
-     * @return
-     */
-    public static Date addDay(Date date) {
-    	Calendar data = Calendar.getInstance();
-    	data.setTime(date);
-    	data.add(Calendar.DATE, 1);
-    	return data.getTime();
     }
     /**
      * Metodo che consente di confrontare due date in base al solo giorno della settimana
@@ -122,6 +111,6 @@ public abstract class StatsFilter {
      * @return
      * @throws Exception
      */
-    public abstract String getIndexFilter(xxxxxx filter) throws Exception;
+    public abstract String getIndexFilter(IndexTempFilter filter) throws Exception;
 
 }

@@ -4,18 +4,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import com.gisias.OpenWeather.service.Methods;
-import com.gisias.OpenWeather.service.StatsFilter;
-import com.gisias.OpenWeather.util.Deserialize;
-
 /**
- * Classe di bootstrap del nostro applicativo
+ * Classe di bootstrap dell'applicativo
  * 
  * @author AndreaIasenzaniro
  * @author CarloGissi
  *
  */
 @SpringBootApplication
+/*
+ * annotazione che abilita la capacità di esecuzione delle attività pianificate di Spring
+ */
 @EnableScheduling
 public class OpenWeatherApplication {
 
@@ -30,8 +29,6 @@ public class OpenWeatherApplication {
 		 */
 		//Methods.writeForecast();
 		
-		
-		//Methods.fileWriter2(StatsFilter.oneForDay(Deserialize.deserializeCurrent("Termoli")), "prova");
 		
 	}
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.gisias.OpenWeather.Filter.IndexFilter;
 import com.gisias.OpenWeather.Filter.TempFilter;
-import com.gisias.OpenWeather.Filter.xxxxxx;
+import com.gisias.OpenWeather.Filter.IndexTempFilter;
 import com.gisias.OpenWeather.Stats.Stats;
 import com.gisias.OpenWeather.model.Weather;
 import com.gisias.OpenWeather.util.Deserialize;
@@ -93,8 +93,14 @@ public class StatsFilterImpl extends StatsFilter{
     	return filterJson;
     	
     }
+	/**
+	 *Metodo che consente di effettuare il confronto tra le temperature reali e previsionali di uno stesso giorno
+	 *
+	 *@param filter oggetto di tipo IndexTempFilter passato per ottenere statistica sulle rpevisioni
+	 *@return Stringa in formato Json di un vettore di tipo IndexFilter
+	 */
 	@Override
-	public String getIndexFilter(xxxxxx filter) throws Exception {
+	public String getIndexFilter(IndexTempFilter filter) throws Exception {
 		
 		Long data1=StringToDate(filter.getInInstant());
     	Long data2=StringToDate(filter.getFinInstant());
@@ -108,7 +114,6 @@ public class StatsFilterImpl extends StatsFilter{
     		for(Weather weathfor : forec) {
     			if(data1<weathcur.getDt() && data2>weathcur.getDt()) {
     				if(matchDate(unixToDate(weathcur.getDt()), unixToDate(weathfor.getDt()))) {
-        				
         				double diff = weathcur.getTemp()-weathfor.getTemp();
         				double round=(double)Math.round(diff*100d)/100d;
         				if(round < 0) {
@@ -122,8 +127,8 @@ public class StatsFilterImpl extends StatsFilter{
     			}
     		}
     	}
-    	String indice = new Gson().toJson(temp);
-		return indice;
+    	String result = new Gson().toJson(temp);
+		return result;
     	
 	}
 }

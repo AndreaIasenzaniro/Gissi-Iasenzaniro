@@ -42,6 +42,7 @@ public class DataBaseImpl implements DataBase {
 		metadata.add(new MetaData("realVariance", "varianza delle temperature reali nell'intervallo richiesto", "double"));
 		metadata.add(new MetaData("feelAvg", "media delle temperature percepite nell'intervallo richiesto", "double"));
 		metadata.add(new MetaData("feelVariance", "varianza delle temperature percepite nell'intervallo richiesto", "double"));
+		metadata.add(new MetaData("errorMarg", "errore marginale nel calcolo delle previsioni rispetto alla realtà", "double"));
 		return metadata;
 	}
 	/**

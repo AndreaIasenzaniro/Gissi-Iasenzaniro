@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.gisias.OpenWeather.Filter.TempFilter;
-import com.gisias.OpenWeather.Filter.xxxxxx;
+import com.gisias.OpenWeather.Filter.IndexTempFilter;
 import com.gisias.OpenWeather.service.DataBaseImpl;
 import com.gisias.OpenWeather.service.Parser;
 import com.gisias.OpenWeather.service.StatsFilterImpl;
@@ -74,12 +74,14 @@ public class Controller {
 		return statsfilter.getTempFilter(filter);
 	}
 	/**
+	 * Rotta che consente di effettuare 
+	 * 
 	 * @param filter
 	 * @return
 	 * @throws Exception
 	 */
 	@PostMapping("/index")
-	public String getIndexFilter(@RequestBody xxxxxx filter) throws Exception{
+	public String getIndexFilter(@RequestBody IndexTempFilter filter) throws Exception{
 		return statsfilter.getIndexFilter(filter);
 	}
 }

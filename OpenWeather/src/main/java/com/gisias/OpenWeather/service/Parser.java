@@ -6,18 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Vector;
-
-import org.json.simple.parser.JSONParser;
 
 import com.gisias.OpenWeather.model.Data;
-import com.gisias.OpenWeather.model.Weather;
 import com.gisias.OpenWeather.util.Serialize;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 /**
  * Classe che contiene metodi che effettuano il parsing Json
@@ -29,6 +20,7 @@ import com.google.gson.JsonParser;
 public class Parser {
 	/**
 	 * Metodo che effettua il parsing di Current Api 
+	 * 
 	 * @param cityname nome della città di cui interrogare Api
 	 * @return Stringa serializzata delle informazioni della città 
 	 */
@@ -63,6 +55,7 @@ public class Parser {
 	}
 	/**
 	 * Metodo che effettua il parsing di Forecast Api
+	 * 
 	 * @param cityname nome della città di cui interrogare le Api
 	 * @return Stringa serializzata delle informazioni della città
 	 */
@@ -72,7 +65,6 @@ public class Parser {
 			
 		String APIKey = "820bf47a49c82ee50491d810263b4bd4";
 		String urlString ="https://api.openweathermap.org/data/2.5/onecall?lat="+data.getLat()+"&lon="+data.getLon()+"&exclude=minutely,current,hourly&appid=" + APIKey;
-		JSONParser parser = new JSONParser();
 			
 		try {
 			URLConnection openConnection = new URL(urlString).openConnection();
