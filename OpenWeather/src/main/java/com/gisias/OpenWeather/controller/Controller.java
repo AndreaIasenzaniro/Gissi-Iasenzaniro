@@ -33,16 +33,16 @@ public class Controller {
 	StatsFilterImpl statsfilter;
 	
 	/**
-	 * Rotta che consente di interpretare il tipo dati forniti come risposta dal programma
+	 * Rotta che consente di interpretare tipo e significato dei dati forniti come risposta dal programma
 	 * 
-	 * @return oggetti di tipo MetaData in formato Json
+	 * @return vettore di Metadata in formato Json 
 	 */
 	@GetMapping("/metadata")
 	public ResponseEntity<Object> getMetaData(){
 		return new ResponseEntity<>(databaseimpl.parsMetaData(databaseimpl.getMetaData()), HttpStatus.OK);
 	}
 	/**
-	 * Rotta che consente di visualizzare previsioni attuali di una città
+	 * Rotta che consente di visualizzare previsioni attuali di una città, interrogando le API OpenWeather
 	 * 
 	 * @param name nome della città da ricercare
 	 * @return Stringa dell'oggetto Weather in formato Json
@@ -52,11 +52,10 @@ public class Controller {
 		return new ResponseEntity<>(Parser.currentParser(city), HttpStatus.OK);
 	}
 	/**
-	 * Rotta che permette di ottenere statistiche filtrate per durata, di una città scelta
+	 * Rotta che permette di ottenere statistiche filtrate, per intervallo di tempo, di una città scelta
 	 * 
-	 * @param filter oggetto di tipo filter che contiene città e intervallo di ricerca
-	 * @return Stringa Json con i dati relativi alla temperatura massima, minima, media e varianza
-	 * @throws Exception
+	 * @param filter oggetto di tipo Filter che contiene città e intervallo di ricerca
+	 * @return Stringa Json con i dati relativi alla temperatura(percepita e reale) massima e minima, media e varianza
 	 */
 	@PostMapping("/currentstats")
 	public String getTempStats(@RequestBody TempFilter filter) throws Exception{
@@ -65,20 +64,18 @@ public class Controller {
 	/**
 	 * Rotta che restituisce previsioni orarie storiche di una data città, in un arco temporale definito dall'utente
 	 * 
-	 * @param filter
-	 * @return
-	 * @throws Exception
+	 * @param filter oggetto di tipo Filter che contiene città e intervallo di ricerca
+	 * @return Stringa Json di Vector di tipo Weather
 	 */
 	@PostMapping("/currentfilter")
 	public String getTempFilter(@RequestBody TempFilter filter) throws Exception{
 		return statsfilter.getTempFilter(filter);
 	}
 	/**
-	 * Rotta che consente di effettuare 
+	 * Rotta che consente di filtrare lo storico in base all'esattezza della previsione effettuata su un dato margine di errore
 	 * 
-	 * @param filter
-	 * @return
-	 * @throws Exception
+	 * @param filter oggetto di tipo Filter che contiene città, intervallo di ricerca e errore marginale
+	 * @return Stringa Json dell'oggetto di tipo IndexFilter
 	 */
 	@PostMapping("/index")
 	public String getIndexFilter(@RequestBody IndexTempFilter filter) throws Exception{

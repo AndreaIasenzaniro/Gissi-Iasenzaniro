@@ -7,6 +7,8 @@ import java.util.*;
 
 import org.springframework.stereotype.Service;
 
+import com.gisias.OpenWeather.Exception.CityNameException;
+import com.gisias.OpenWeather.Exception.DateException;
 import com.gisias.OpenWeather.Filter.IndexFilter;
 import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.Filter.IndexTempFilter;
@@ -27,10 +29,6 @@ public class StatsFilterImpl extends StatsFilter{
     
     /**
      * Metodo che consente di ottenere statistiche di una città filtrate temporalmente
-     * 
-     * @param filter oggetto filter passato per ottenere statistiche
-     * @return Stringa Json con le statistiche nel periodo richiesto
-     * @throws Exception
      */
     public String getTempStats(TempFilter filter) throws Exception  {
     	
@@ -50,7 +48,7 @@ public class StatsFilterImpl extends StatsFilter{
     			feelTemp.add(weath.getFeels_like());
     		}
     		else {
-    			//Lancia eccezione per inserimento sbagliato delle date(try cat
+    			//Lancia eccezione per inserimento sbagliato delle date(try catch)
     		}
     	}
     	Double tMax=Stats.getMaxVal(tempMax);
@@ -68,16 +66,13 @@ public class StatsFilterImpl extends StatsFilter{
     }
     /**
      * Metodo che consente di filtrare storico dati per città e data
-     * 
-     * @param filter oggetto filter passato per ottenere storico dati filtrato
-     * @return Stringa Json con lo storico nel periodo richiesto
-     * @throws Exception
      */
-    public String getTempFilter(TempFilter filter) throws Exception  {
+    public String getTempFilter(TempFilter filter) throws Exception {
     	
-    	Long data1=StringToDate(filter.getInInstant());
-    	Long data2=StringToDate(filter.getFinInstant());
-    	
+        Long data1=StringToDate(filter.getInInstant());
+        Long data2=StringToDate(filter.getFinInstant());
+        
+    		
     	Vector<Weather> deserialized =Deserialize.deserializeCurrent(filter.getCityName());
     	Vector<Weather> trovati=new Vector<Weather>();
     	for(Weather weath: deserialized) {
@@ -91,13 +86,9 @@ public class StatsFilterImpl extends StatsFilter{
     	}
     	String filterJson = new Gson().toJson(trovati);
     	return filterJson;
-    	
     }
 	/**
 	 *Metodo che consente di effettuare il confronto tra le temperature reali e previsionali di uno stesso giorno
-	 *
-	 *@param filter oggetto di tipo IndexTempFilter passato per ottenere statistica sulle rpevisioni
-	 *@return Stringa in formato Json di un vettore di tipo IndexFilter
 	 */
 	@Override
 	public String getIndexFilter(IndexTempFilter filter) throws Exception {

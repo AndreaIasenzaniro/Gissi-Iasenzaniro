@@ -179,4 +179,3 @@
 {"dt":1610254799,"clouds":75.0,"temp":275.52,"feels_like":270.5,"tempMax":276.15,"tempMin":275.15,"wind_speed":4.63,"cityName":"\"Riccione\"","lat":44.0051,"lon":12.6447}
 {"dt":1610258399,"clouds":90.0,"temp":274.97,"feels_like":269.87,"tempMax":276.15,"tempMin":273.71,"wind_speed":4.63,"cityName":"\"Riccione\"","lat":44.0051,"lon":12.6447}
 {"dt":1610261999,"clouds":90.0,"temp":275.4,"feels_like":270.58,"tempMax":276.15,"tempMin":273.71,"wind_speed":4.12,"cityName":"\"Riccione\"","lat":44.0051,"lon":12.6447}
-{"dt":1610992804,"clouds":7.0,"temp":275.75,"feels_like":272.93,"tempMax":276.48,"tempMin":274.15,"wind_speed":1.54,"cityName":"\"Riccione\"","lat":44.0051,"lon":12.6447}

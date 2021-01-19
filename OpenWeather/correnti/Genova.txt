@@ -179,4 +179,3 @@
 {"dt":1610254759,"clouds":98.0,"temp":276.03,"feels_like":270.73,"tempMax":277.04,"tempMin":275.37,"wind_speed":4.47,"cityName":"\"Provincia di Genova\"","lat":44.5,"lon":9.0667}
 {"dt":1610258344,"clouds":100.0,"temp":276.12,"feels_like":270.74,"tempMax":276.48,"tempMin":275.93,"wind_speed":4.47,"cityName":"\"Provincia di Genova\"","lat":44.5,"lon":9.0667}
 {"dt":1610261999,"clouds":100.0,"temp":276.3,"feels_like":271.18,"tempMax":276.48,"tempMin":275.93,"wind_speed":4.02,"cityName":"\"Provincia di Genova\"","lat":44.5,"lon":9.0667}
-{"dt":1610992652,"clouds":40.0,"temp":280.46,"feels_like":277.58,"tempMax":282.15,"tempMin":279.82,"wind_speed":2.06,"cityName":"\"Provincia di Genova\"","lat":44.5,"lon":9.0667}

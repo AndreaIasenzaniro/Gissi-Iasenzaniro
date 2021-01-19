@@ -25,7 +25,7 @@ public class OpenWeatherApplication {
 		 */
 		//Methods.writeCurrent();
 		/*
-		 * Metodo che ci ha permesso di effettuare chiamate a Forecast ApiRest
+		 * Metodo che ci ha permesso di effettuare chiamate a Forecast ApiRest(cadenza settimanale)
 		 */
 		//Methods.writeForecast();
 		

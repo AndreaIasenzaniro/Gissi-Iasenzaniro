@@ -179,4 +179,3 @@
 {"dt":1610254799,"clouds":100.0,"temp":288.45,"feels_like":289.46,"tempMax":288.45,"tempMin":288.45,"wind_speed":1.02,"cityName":"\"Amalfi\"","lat":6.9102,"lon":-75.0776}
 {"dt":1610258399,"clouds":97.0,"temp":288.41,"feels_like":289.27,"tempMax":288.41,"tempMin":288.41,"wind_speed":1.22,"cityName":"\"Amalfi\"","lat":6.9102,"lon":-75.0776}
 {"dt":1610261999,"clouds":100.0,"temp":288.23,"feels_like":289.14,"tempMax":288.23,"tempMin":288.23,"wind_speed":1.05,"cityName":"\"Amalfi\"","lat":6.9102,"lon":-75.0776}
-{"dt":1610992805,"clouds":82.0,"temp":296.03,"feels_like":296.74,"tempMax":296.03,"tempMin":296.03,"wind_speed":1.92,"cityName":"\"Amalfi\"","lat":6.9102,"lon":-75.0776}

@@ -179,4 +179,3 @@
 {"dt":1610254550,"clouds":100.0,"temp":285.67,"feels_like":283.05,"tempMax":287.59,"tempMin":283.15,"wind_speed":3.76,"cityName":"\"Positano\"","lat":40.6283,"lon":14.4843}
 {"dt":1610258399,"clouds":88.0,"temp":285.3,"feels_like":283.67,"tempMax":286.48,"tempMin":282.59,"wind_speed":2.68,"cityName":"\"Positano\"","lat":40.6283,"lon":14.4843}
 {"dt":1610261999,"clouds":100.0,"temp":285.46,"feels_like":284.01,"tempMax":287.04,"tempMin":283.15,"wind_speed":3.09,"cityName":"\"Positano\"","lat":40.6283,"lon":14.4843}
-{"dt":1610992805,"clouds":0.0,"temp":279.5,"feels_like":276.84,"tempMax":279.82,"tempMin":278.71,"wind_speed":2.6,"cityName":"\"Positano\"","lat":40.6283,"lon":14.4843}

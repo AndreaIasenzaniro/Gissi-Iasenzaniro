@@ -11,10 +11,7 @@ public class IndexTempFilter extends TempFilter {
 
 	double errorMarg;
 	/**
-	 * @param cityName
-	 * @param inInstant
-	 * @param finInstant
-	 * @param errorMarg
+	 * @param errorMarg errore nella previsione effettuata
 	 */
 	public IndexTempFilter(String cityName, String inInstant, String finInstant, double errorMarg) {
 		super(cityName, inInstant, finInstant);

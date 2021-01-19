@@ -22,8 +22,15 @@ import org.json.simple.parser.JSONParser;
  */
 public class Data {
 	
+
 	String cityName;
+	/**
+	 * latitudine della città
+	 */
 	double lat;
+	/**
+	 * longitudine della città
+	 */
 	double lon;
 	/**
 	 * @param cityName nome della città

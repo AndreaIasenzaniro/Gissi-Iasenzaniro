@@ -52,9 +52,9 @@ public class Serialize {
 		return weath;
 	}
 	/**
-	 * @param toSerialize
-	 * @param cityname
-	 * @return
+	 * @param toSerialize Stringa in ingresso da cui estrarre i campi da assegnare
+	 * @param cityname nome della città da serializzare
+	 * @return  Stringa in formato Json dell'oggetto serializzato
 	 */
 	public static String forecastSerializer(String toSerialize,String cityname) {
 		

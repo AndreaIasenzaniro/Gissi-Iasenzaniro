@@ -118,6 +118,7 @@ public class Stats {
 
 	/**
 	 * Metodo che calcola la media dei valori di un Vettore di tipo double
+	 * 
 	 * @param values vettore di numeri dei quali viene calcolata la media
 	 * @return media dei valori contenuti nel vettore
 	 */
@@ -131,6 +132,7 @@ public class Stats {
 	}
 	/**
 	 * Metodo che calcola la varianza dei valori di un Vettore di tipo double
+	 * 
 	 * @param values vettore di numeri dei quali viene calcolata la varianza
 	 * @return varianza dei valori contenuti nel vettore
 	 */
@@ -144,6 +146,7 @@ public class Stats {
 	}
 	/**
 	 * Metodo che estrapola il valore massimo di un Vettore di double
+	 * 
 	 * @param values vettore di numeri da cui estrarre il massimo 
 	 * @return valore massimo del vattore
 	 */
@@ -159,6 +162,7 @@ public class Stats {
 	}
 	/**
 	 * Metodo che estrapola il valore minimo di un Vettore di double
+	 * 
 	 * @param values vettore di numeri da cui estrarre il minimo
 	 * @return valore minimo del vettore
 	 */
