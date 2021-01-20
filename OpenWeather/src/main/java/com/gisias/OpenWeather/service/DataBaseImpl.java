@@ -43,6 +43,10 @@ public class DataBaseImpl implements DataBase {
 		metadata.add(new MetaData("feelAvg", "media delle temperature percepite nell'intervallo richiesto", "double"));
 		metadata.add(new MetaData("feelVariance", "varianza delle temperature percepite nell'intervallo richiesto", "double"));
 		metadata.add(new MetaData("errorMarg", "errore marginale nel calcolo delle previsioni rispetto alla realtà", "double"));
+		metadata.add(new MetaData("dateIn", "Inizio intervallo di ricerca nel formato dd/MM/yy", "String"));
+		metadata.add(new MetaData("dateFin", "Fine intervallo di ricerca nel formato dd/MM/yy", "String"));
+		metadata.add(new MetaData("correct", "Quantità di previsioni azzeccate nell'intervallo richiesto", "int"));
+		metadata.add(new MetaData("uncorrecttemp", "Vettore di temperature non azzeccate in base all'errore dato", "Vector<Double>"));
 		return metadata;
 	}
 	/**

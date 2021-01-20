@@ -3,6 +3,8 @@
  */
 package com.gisias.OpenWeather.Filter;
 
+import java.util.Vector;
+
 /**
  * Classe relatva al filtraggio delle previsioni azzeccate in base ad un dato margine di errore
  * 
@@ -12,39 +14,69 @@ package com.gisias.OpenWeather.Filter;
  */
 public class IndexFilter{
 	
-	String dt;
-	double temp;
+	String dateIn;
+	String dateFin;
+	int correct;
+	Vector<Double> uncorrectTemp = new Vector<Double>();
 	/**
-	 * @param dt
-	 * @param temp
+	 * @param dateIn data iniziale dell'intervallo
+	 * @param dateFin data finale dell'intervallo
+	 * @param correct contatore delle previsioni azzeccate
+	 * @param uncorrectTemp vettore delle temperature che superano la soglia di errore
 	 */
-	public IndexFilter(String dt, double temp) {
-		this.dt = dt;
-		this.temp = temp;
+	public IndexFilter(String dateIn, String dateFin, int correct, Vector<Double> uncorrectTemp) {
+		this.dateIn = dateIn;
+		this.dateFin = dateFin;
+		this.correct = correct;
+		this.uncorrectTemp = uncorrectTemp;
 	}
 	/**
-	 * @return the dt
+	 * @return the dt1
 	 */
-	public String getDt() {
-		return dt;
+	public String getDt1() {
+		return dateIn;
 	}
 	/**
-	 * @param dt the dt to set
+	 * @param dt1 the dt1 to set
 	 */
-	public void setDt(String dt) {
-		this.dt = dt;
+	public void setDt1(String dt1) {
+		this.dateIn = dt1;
+	}
+	/**
+	 * @return the dt2
+	 */
+	public String getDt2() {
+		return dateFin;
+	}
+	/**
+	 * @param dt2 the dt2 to set
+	 */
+	public void setDt2(String dt2) {
+		this.dateFin = dt2;
+	}
+	/**
+	 * @return the correct
+	 */
+	public int getCorrect() {
+		return correct;
+	}
+	/**
+	 * @param correct the correct to set
+	 */
+	public void setCorrect(int correct) {
+		this.correct = correct;
 	}
 	/**
 	 * @return the temp
 	 */
-	public double getTemp() {
-		return temp;
+	public Vector<Double> getTemp() {
+		return uncorrectTemp;
 	}
 	/**
 	 * @param temp the temp to set
 	 */
-	public void setTemp(double temp) {
-		this.temp = temp;
+	public void setTemp(Vector<Double> temp) {
+		this.uncorrectTemp = temp;
 	}
 	
 }

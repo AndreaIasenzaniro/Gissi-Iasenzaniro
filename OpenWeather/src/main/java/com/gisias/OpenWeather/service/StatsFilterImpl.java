@@ -114,7 +114,9 @@ public class StatsFilterImpl extends StatsFilter{
 	    		Vector<Weather> forec = Deserialize.deserializeForecast(filter.getCityName());
 	        	Vector<Weather> curr = oneForDay(Deserialize.deserializeCurrent(filter.getCityName()));
 	        	
-	        	Vector<IndexFilter> temp = new Vector<IndexFilter>();
+	        	Vector<Double> temp = new Vector<Double>();
+	        	
+	        	int cont=0;
 	        	
 	        	for(Weather weathcur : curr) {
 	        		for(Weather weathfor : forec) {
@@ -126,14 +128,21 @@ public class StatsFilterImpl extends StatsFilter{
 	            					round*=-1;
 	            				}
 	            				if(filter.getErrorMarg()>round) {
-		            				IndexFilter index = new IndexFilter(unixToString(weathcur.getDt()),round);
-		                			temp.add(index);
-		            			}	
+		            				//temp.add(round);
+	            					cont++;
+	            					//IndexFilter index = new IndexFilter(unixToString(weathcur.getDt()),round);
+		                			//temp.add(index);
+		            			}
+	            				else if(round>filter.getErrorMarg()) {
+	            					temp.add(round);
+	            				}
+	            				
 	            			}
 	        			}
 	        		}
 	        	}
-	        	String result = new Gson().toJson(temp);
+	        	IndexFilter index = new IndexFilter(unixToString(data1),unixToString(data2),cont,temp);
+	        	String result = new Gson().toJson(index);
 	    		return result;
 	    	}catch(Exception e) {
 	    		throw new CityNameException("Città inserita erratamente o non presente nel dataset");
