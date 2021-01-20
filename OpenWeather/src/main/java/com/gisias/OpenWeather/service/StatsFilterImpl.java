@@ -2,8 +2,8 @@
  * 
  */
 package com.gisias.OpenWeather.service;
-
 import java.text.ParseException;
+
 import java.util.*;
 
 import org.springframework.stereotype.Service;
@@ -33,7 +33,7 @@ public class StatsFilterImpl extends StatsFilter{
      * @throws ParseException 
      * @throws CityNameException 
      */
-    public String getTempStats(TempFilter filter) throws DateException, ParseException, CityNameException  {
+    public String getTempStats(TempFilter filter) throws DateException, ParseException, CityNameException {
     	
     	if(StringToDate(filter.getInInstant())<StringToDate(filter.getFinInstant())) {
     		Long data1=StringToDate(filter.getInInstant());

@@ -167,13 +167,13 @@ public class Stats {
 	 * @return valore minimo del vettore
 	 */
 	public static double getMinVal(Vector<Double>values) {
-		double max=values.elementAt(0);
+		double min=values.elementAt(0);
 		for(int i=0; i<values.size(); i++) {
 			double temp=values.elementAt(i);
-			if(temp<max) {
-				max=temp;
+			if(temp<min || temp==min) {
+				min=temp;
 			}
 		}
-		return max;
+		return min;
 	}
 }

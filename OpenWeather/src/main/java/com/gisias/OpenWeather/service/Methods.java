@@ -4,8 +4,8 @@
 package com.gisias.OpenWeather.service;
 
 import java.io.*;
-import java.util.Vector;
 
+import java.util.Vector;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
  * @author CarloGissi
  *
  */
+@SuppressWarnings("unused")
 @Service
 public class Methods {
 	
@@ -24,7 +25,7 @@ public class Methods {
 	 * 
 	 * @return Vettore di tipo stringa
 	 */
-	protected static Vector<String> getCities(){
+	public static Vector<String> getCities(){
 		Vector<String> citta = new Vector<String>();
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("citta.txt"));
