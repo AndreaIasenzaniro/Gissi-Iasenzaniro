@@ -30,6 +30,7 @@ public class StatsFilterImpl extends StatsFilter{
     
     /**
      * Metodo che consente di ottenere statistiche di una città filtrate temporalmente
+     * 
      * @throws ParseException 
      * @throws CityNameException 
      */
