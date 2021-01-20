@@ -17,7 +17,9 @@ public class IndexFilter{
 	String dateIn;
 	String dateFin;
 	int correct;
+	int uncorrect;
 	Vector<Double> uncorrectTemp = new Vector<Double>();
+	
 	/**
 	 * @param dateIn data iniziale dell'intervallo
 	 * @param dateFin data finale dell'intervallo
@@ -29,6 +31,7 @@ public class IndexFilter{
 		this.dateFin = dateFin;
 		this.correct = correct;
 		this.uncorrectTemp = uncorrectTemp;
+		this.uncorrect=this.uncorrectTemp.size();
 	}
 	/**
 	 * @return the dt1

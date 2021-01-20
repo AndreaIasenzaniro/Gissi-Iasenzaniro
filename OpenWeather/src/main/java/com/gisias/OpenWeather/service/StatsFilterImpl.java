@@ -128,10 +128,7 @@ public class StatsFilterImpl extends StatsFilter{
 	            					round*=-1;
 	            				}
 	            				if(filter.getErrorMarg()>round) {
-		            				//temp.add(round);
 	            					cont++;
-	            					//IndexFilter index = new IndexFilter(unixToString(weathcur.getDt()),round);
-		                			//temp.add(index);
 		            			}
 	            				else if(round>filter.getErrorMarg()) {
 	            					temp.add(round);

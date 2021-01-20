@@ -20,12 +20,15 @@ import com.google.gson.Gson;
 @Service
 public class DataBaseImpl implements DataBase {
 
-	static Vector<MetaData> metadata = new Vector<MetaData>();
+	
 	/**
 	 *Metodo che popola un Vettore di tipo Metadata con le relative informazioni
 	 */
 	@Override
-	public Vector<MetaData> getMetaData(){
+	public String getMetaData(){
+		
+		Vector<MetaData> metadata = new Vector<MetaData>();
+		
 		metadata.add(new MetaData("cityName", "Nome della citta","String"));
 		metadata.add(new MetaData("dt", "Periodo di riferimento","String"));
 		metadata.add(new MetaData("clouds", "Nuvolosità della città nel periodo considerato","String"));
@@ -46,16 +49,9 @@ public class DataBaseImpl implements DataBase {
 		metadata.add(new MetaData("dateIn", "Inizio intervallo di ricerca nel formato dd/MM/yy", "String"));
 		metadata.add(new MetaData("dateFin", "Fine intervallo di ricerca nel formato dd/MM/yy", "String"));
 		metadata.add(new MetaData("correct", "Quantità di previsioni azzeccate nell'intervallo richiesto", "int"));
-		metadata.add(new MetaData("uncorrecttemp", "Vettore di temperature non azzeccate in base all'errore dato", "Vector<Double>"));
-		return metadata;
-	}
-	/**
-	 *Metodo che effettua il parsing di un Vector di MetaData e restituisce una Stringa in formato Json
-	 */
-	@Override
-	public String parsMetaData(Vector<MetaData> metadata) {
-		Gson gson = new Gson();
-		String stringa = gson.toJson(metadata);
+		metadata.add(new MetaData("uncorrectTemp", "Vettore di temperature non azzeccate in base all'errore dato", "Vector<Double>"));
+		
+		String stringa = new Gson().toJson(metadata);
 		return stringa;
 	}
 }

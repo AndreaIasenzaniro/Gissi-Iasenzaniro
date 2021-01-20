@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.Filter.IndexTempFilter;
+import com.gisias.OpenWeather.service.DataBase;
 import com.gisias.OpenWeather.service.DataBaseImpl;
 import com.gisias.OpenWeather.service.Parser;
 import com.gisias.OpenWeather.service.StatsFilterImpl;
@@ -30,10 +31,9 @@ import com.google.gson.Gson;
 public class Controller {
 
 	@Autowired
-	DataBaseImpl databaseimpl;
+	DataBase database;
 	@Autowired
 	StatsFilterImpl statsfilter;
-	
 	/**
 	 * Rotta che consente di interpretare tipo e significato dei dati forniti come risposta dal programma
 	 * 
@@ -41,7 +41,7 @@ public class Controller {
 	 */
 	@GetMapping("/metadata")
 	public ResponseEntity<Object> getMetaData(){
-		return new ResponseEntity<>(databaseimpl.parsMetaData(databaseimpl.getMetaData()), HttpStatus.OK);
+		return new ResponseEntity<>(database.getMetaData(), HttpStatus.OK);
 	}
 	/**
 	 * Rotta che consente di visualizzare previsioni attuali di una città, interrogando le API OpenWeather
