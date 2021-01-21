@@ -1,0 +1,8 @@
+com.gisias.OpenWeather
+com.gisias.OpenWeather.controller
+com.gisias.OpenWeather.Exception
+com.gisias.OpenWeather.Filter
+com.gisias.OpenWeather.model
+com.gisias.OpenWeather.service
+com.gisias.OpenWeather.Stats
+com.gisias.OpenWeather.util
