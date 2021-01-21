@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.gisias.OpenWeather.Filter.TempFilter;
+import com.gisias.OpenWeather.Exception.DateException;
 import com.gisias.OpenWeather.Filter.IndexTempFilter;
 import com.gisias.OpenWeather.service.DataBase;
 import com.gisias.OpenWeather.service.DataBaseImpl;
@@ -71,14 +72,18 @@ public class Controller {
 	 */
 	@PostMapping("/currentfilter")
 	public String getTempFilter(@RequestBody TempFilter filter) throws Exception{
-		if(!(filter.getInInstant()=="") && !(filter.getFinInstant()=="")) {
-			return statsfilter.getTempFilter(filter);
-		}
-		else {
-			String stringa = new Gson().toJson(Deserialize.deserializeCurrent(filter.getCityName()));
-			return stringa;
-		}
-	}
+        if((filter.getInInstant()=="") && (filter.getFinInstant()=="")) {
+            String stringa = new Gson().toJson(Deserialize.deserializeCurrent(filter.getCityName()));
+            return stringa;
+        }
+        if((filter.getInInstant()=="") || (filter.getFinInstant()=="")){
+            throw new DateException("Intervallo non valido");
+           
+        }
+        else {
+            return statsfilter.getTempFilter(filter);
+        }
+    }
 	/**
 	 * Rotta che consente di filtrare lo storico in base all'esattezza della previsione effettuata su un dato margine di errore
 	 * 
