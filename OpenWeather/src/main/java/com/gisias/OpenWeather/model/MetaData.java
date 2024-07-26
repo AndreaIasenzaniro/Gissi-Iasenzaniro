@@ -1,30 +1,47 @@
-/**
- * 
- */
 package com.gisias.OpenWeather.model;
 
-/**
- * Classe che permette di creare un oggetto metadata, relativo alle informazioni sui dati utilizzati
- * 
- * @author AndreaIasenzaniro
- * @author CarloGissi
- *
- */
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MetaData {
 
-	String Alias;
-	String sourceField;
-	String type;
-	/**
-	 * @param alias nome della variabile utilizzata
-	 * @param sourceField significato del nome della variabile
-	 * @param type tipo della variabile
-	 */
-	public MetaData(String alias, String sourceField, String type) {
-		Alias = alias;
-		this.sourceField = sourceField;
-		this.type = type;
-	}
-	
-	
+    private String alias;
+    private String sourceField;
+    private String type;
+
+    // Default constructor
+    public MetaData() {}
+
+    // Parameterized constructor
+    public MetaData(String name, String description, String type) {
+        this.alias = name;
+        this.sourceField = description;
+        this.type = type;
+    }
+
+    @JsonProperty("name")
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String name) {
+        this.alias = name;
+    }
+
+    @JsonProperty("description")
+    public String getSourceField() {
+        return sourceField;
+    }
+
+    public void setSourceField(String description) {
+        this.sourceField = description;
+    }
+
+    @JsonProperty("type")
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

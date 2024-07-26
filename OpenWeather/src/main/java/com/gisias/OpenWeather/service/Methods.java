@@ -66,7 +66,7 @@ public class Methods {
 	//@Scheduled(cron="0 0 * * * *")
 	public static void writeCurrent() {
 		for(String c : getCities()) {
-			fileWriter(Parser.currentParser(c), "correnti", c);
+			//fileWriter(Parser.currentParser(c), "correnti", c);
 		}
 	}
 	/**
@@ -75,7 +75,7 @@ public class Methods {
 	//@Scheduled(fixedRate=10080*60*1000)
 	public static void writeForecast() {
 		for(String c : getCities()) {
-			fileWriter(Parser.forecastParser(c), "previsionali", c);
+			//fileWriter(Parser.forecastParser(c), "previsionali", c);
 		}
 	}
 	

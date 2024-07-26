@@ -3,6 +3,10 @@
  */
 package com.gisias.OpenWeather.service;
 
+import java.util.List;
+
+import com.gisias.OpenWeather.model.MetaData;
+
 /**
  * Classe astratta con metodi che consentono di ottenere MetaData
  * 
@@ -17,5 +21,5 @@ public interface DataBase {
 	 * 
 	 * @return vettore di tipo Metadata
 	 */
-	public String getMetaData();
+	public List<MetaData> getMetaData();
 }

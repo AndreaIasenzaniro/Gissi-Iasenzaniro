@@ -32,9 +32,11 @@ import com.google.gson.Gson;
 public class Controller {
 
 	@Autowired
-	DataBase database;
+	private DataBase database;
 	@Autowired
-	StatsFilterImpl statsfilter;
+	private StatsFilterImpl statsfilter;
+	@Autowired
+    private Parser parser;
 	/**
 	 * Rotta che consente di interpretare tipo e significato dei dati forniti come risposta dal programma
 	 * 
@@ -52,7 +54,7 @@ public class Controller {
 	 */
 	@GetMapping("/current")
 	public ResponseEntity<Object> currentParser(@RequestParam(value="city") String city){
-		return new ResponseEntity<>(Parser.currentParser(city), HttpStatus.OK);
+		return new ResponseEntity<>(parser.currentParser(city), HttpStatus.OK);
 	}
 	/**
 	 * Rotta che permette di ottenere statistiche filtrate, per intervallo di tempo, di una città scelta

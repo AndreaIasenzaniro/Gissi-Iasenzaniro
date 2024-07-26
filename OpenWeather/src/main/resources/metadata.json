@@ -1,0 +1,107 @@
+[
+    {
+        "alias": "cityName",
+        "sourceField": "Nome della citta",
+        "type": "String"
+    },
+    {
+        "alias": "dt",
+        "sourceField": "Periodo di riferimento",
+        "type": "String"
+    },
+    {
+        "alias": "clouds",
+        "sourceField": "Nuvolosità della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "alias": "temp",
+        "sourceField": "Temperatura della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "alias": "feels_like",
+        "sourceField": "Temperatura percepita della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "alias": "tempMax",
+        "sourceField": "Temperatura massima della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "alias": "tempMin",
+        "sourceField": "Temperatura minima della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "alias": "wind_speed",
+        "sourceField": "Ventosità della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "alias": "inInstant",
+        "sourceField": "Inizio intervallo di ricerca nel formato dd/MM/yy HH:mm:ss",
+        "type": "String"
+    },
+    {
+        "alias": "finInstant",
+        "sourceField": "Fine intervallo di ricerca nel formato dd/MM/yy HH:mm:ss",
+        "type": "String"
+    },
+    {
+        "alias": "max",
+        "sourceField": "Temperatura massima nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "alias": "min",
+        "sourceField": "Temperatura minima nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "alias": "realAvg",
+        "sourceField": "Media delle temperature reali nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "alias": "realVariance",
+        "sourceField": "Varianza delle temperature reali nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "alias": "feelAvg",
+        "sourceField": "Media delle temperature percepite nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "alias": "feelVariance",
+        "sourceField": "Varianza delle temperature percepite nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "alias": "errorMarg",
+        "sourceField": "Errore marginale nel calcolo delle previsioni rispetto alla realtà",
+        "type": "double"
+    },
+    {
+        "alias": "dateIn",
+        "sourceField": "Inizio intervallo di ricerca nel formato dd/MM/yy",
+        "type": "String"
+    },
+    {
+        "alias": "dateFin",
+        "sourceField": "Fine intervallo di ricerca nel formato dd/MM/yy",
+        "type": "String"
+    },
+    {
+        "alias": "correct",
+        "sourceField": "Quantità di previsioni azzeccate nell'intervallo richiesto",
+        "type": "int"
+    },
+    {
+        "alias": "uncorrectTemp",
+        "sourceField": "Vettore di temperature non azzeccate in base all'errore dato",
+        "type": "Vector<Double>"
+    }
+]
