@@ -9,8 +9,8 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.*;
 
-import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.Filter.IndexTempFilter;
+import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.model.Weather;
 
 /**

@@ -27,7 +27,7 @@ public class Deserialize{
 	public static Vector<Weather> deserializeCurrent(String cityName) {
 		String result="";
 		String line="";
-		String path="correnti";
+		String path="OpenweatherApp/OpenWeather/correnti";
 		Vector<Weather>wth= new Vector<Weather>();
 		try {
 			BufferedReader bufRead = new BufferedReader(new FileReader(path+"/"+cityName+".txt"));
@@ -50,7 +50,7 @@ public class Deserialize{
 	 * @return vettore di tipo weather relativo alla città deserializzata
 	 */
 	public static Vector<Weather> deserializeForecast(String cityName) {
-		String path="previsionali";
+		String path="OpenweatherApp/OpenWeather/previsionali";
 		try {
 			BufferedReader bufRead = new BufferedReader(new FileReader(path+"/"+cityName+".txt"));
 		

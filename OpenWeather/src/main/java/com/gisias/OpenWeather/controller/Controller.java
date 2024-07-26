@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.gisias.OpenWeather.Filter.TempFilter;
+
 import com.gisias.OpenWeather.Exception.DateException;
 import com.gisias.OpenWeather.Filter.IndexTempFilter;
+import com.gisias.OpenWeather.Filter.TempFilter;
 import com.gisias.OpenWeather.service.DataBase;
-import com.gisias.OpenWeather.service.DataBaseImpl;
 import com.gisias.OpenWeather.service.Parser;
 import com.gisias.OpenWeather.service.StatsFilterImpl;
 import com.gisias.OpenWeather.util.Deserialize;
