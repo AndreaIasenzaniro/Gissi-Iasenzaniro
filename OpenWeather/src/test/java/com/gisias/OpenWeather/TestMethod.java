@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import com.gisias.OpenWeather.service.Methods;
 
 class TestMethod {
-	private Methods m1;
+	
 	Vector<String> citta = new Vector<String>();
 	@BeforeEach
 	void setUp() throws Exception {
@@ -33,7 +33,7 @@ class TestMethod {
 
 	@Test
 	void test() {
-		assertEquals(citta,m1.getCities());
+		assertEquals(citta,Methods.getCities());
 	}
 
 }

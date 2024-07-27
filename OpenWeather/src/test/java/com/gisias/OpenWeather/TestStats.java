@@ -10,7 +10,6 @@ import com.gisias.OpenWeather.Stats.Stats;
 
 class TestStats {
 
-	private Stats s1, s2;
 	Vector<Double> v1 = new Vector<Double>();
 	Vector<Double> v2 = new Vector<Double>();
 	
@@ -28,15 +27,15 @@ class TestStats {
 
 	@Test
 	void test1() {
-		assertEquals(6.0,s1.getMaxVal(v1));
-		assertEquals(2.0,s2.getMinVal(v1));
+		assertEquals(6.0,Stats.getMaxVal(v1));
+		assertEquals(2.0,Stats.getMinVal(v1));
 		
 	}
 	
 	@Test
 	void test2() {
-		assertEquals(0.0,s1.getMaxVal(v2));
-		assertEquals(0.0,s2.getMinVal(v2));
+		assertEquals(0.0,Stats.getMaxVal(v2));
+		assertEquals(0.0,Stats.getMinVal(v2));
 	}
 
 }
