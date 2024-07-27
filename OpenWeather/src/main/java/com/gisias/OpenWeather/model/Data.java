@@ -26,15 +26,9 @@ public class Data {
     @Value("${openweather.api.key}")
     private String apiKey;
 
-    String cityName;
-    /**
-     * Latitude of the city
-     */
-    double lat;
-    /**
-     * Longitude of the city
-     */
-    double lon;
+    private String cityName;
+    private double lat;
+    private double lon;
 
     /**
      * Constructor that initializes Data with the city's name and retrieves its coordinates

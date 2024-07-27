@@ -14,26 +14,28 @@ import com.gisias.OpenWeather.model.Data;
 import com.gisias.OpenWeather.util.Serialize;
 
 /**
- * Classe che contiene metodi che effettuano il parsing Json
+ * Class containing methods for parsing JSON data
  * 
- * @author AndreaIasenzaniro
- * @Author CarloGissi
+ * @authour Andrea Iasenzaniro
+ * @authour Carlo Gissi
  *
  */
 @Service
 public class Parser {
 
+    // Base URL for the OpenWeather API, injected from application properties
     @Value("${openweather.api.baseurl}")
     private String baseUrl;
 
+    // API key for the OpenWeather API, injected from application properties
     @Value("${openweather.api.key}")
     private String apiKey;
 
     /**
-     * Metodo che effettua il parsing di Current Api 
+     * Method that parses the current weather data from the OpenWeather API
      * 
-     * @param cityname nome della città di cui interrogare Api
-     * @return Stringa serializzata delle informazioni della città 
+     * @param cityname name of the city to query the API for
+     * @return Serialized string of the city's weather information
      */
     public String currentParser(String cityname) {
         String urlString = baseUrl + "weather?q=" + cityname + "&appid=" + apiKey;
@@ -42,18 +44,17 @@ public class Parser {
             URLConnection openConnection = new URL(urlString).openConnection();
             InputStream input = openConnection.getInputStream();
 
-            String result = "";
-            String line = "";
+            StringBuilder result = new StringBuilder();
+            String line;
 
-            try {
-                BufferedReader bufRead = new BufferedReader(new InputStreamReader(input));
+            try (BufferedReader bufRead = new BufferedReader(new InputStreamReader(input))) {
                 while ((line = bufRead.readLine()) != null) {
-                    result += line;
+                    result.append(line);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return Serialize.currentSerializer(result);
+            return Serialize.currentSerializer(result.toString());
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -61,10 +62,10 @@ public class Parser {
     }
 
     /**
-     * Metodo che effettua il parsing di Forecast Api
+     * Method that parses the weather forecast data from the OpenWeather API
      * 
-     * @param cityname nome della città di cui interrogare le Api
-     * @return Stringa serializzata delle informazioni della città
+     * @param cityname name of the city to query the API for
+     * @return Serialized string of the city's weather forecast information
      */
     public String forecastParser(String cityname) {
         Data data = new Data(cityname);
@@ -74,13 +75,12 @@ public class Parser {
             URLConnection openConnection = new URL(urlString).openConnection();
             InputStream input = openConnection.getInputStream();
 
-            String result = "";
-            String line = "";
+            StringBuilder result = new StringBuilder();
+            String line;
 
-            try {
-                BufferedReader bufRead = new BufferedReader(new InputStreamReader(input));
+            try (BufferedReader bufRead = new BufferedReader(new InputStreamReader(input))) {
                 while ((line = bufRead.readLine()) != null) {
-                    result += line;
+                    result.append(line);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -88,7 +88,7 @@ public class Parser {
             } finally {
                 input.close();
             }
-            return Serialize.forecastSerializer(result, cityname);
+            return Serialize.forecastSerializer(result.toString(), cityname);
         } catch (Exception e) {
             e.printStackTrace();
         }

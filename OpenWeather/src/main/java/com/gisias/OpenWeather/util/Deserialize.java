@@ -10,58 +10,59 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 /**
- * Classe che effettua la deserializzazione di un file in formato Json
+ * Class that performs deserialization of a JSON file
  * 
- * @author AndreaIasenzaniro
- * @author CarloGissi
+ * @authour Andrea Iasenzaniro
+ * @authour Carlo Gissi
  *
  */
-public class Deserialize{
-	/**
-	 * Metodo che deserializza file contenente dati relativi alle Current Api
-	 * 
-	 * @param cityName nome del file della città da deserializzare
-	 * @return vettore di tipo weather relativo alla città deserializzata
-	 */
-	@SuppressWarnings("resource")
-	public static Vector<Weather> deserializeCurrent(String cityName) {
-		String result="";
-		String line="";
-		String path="OpenweatherApp/OpenWeather/correnti";
-		Vector<Weather>wth= new Vector<Weather>();
-		try {
-			BufferedReader bufRead = new BufferedReader(new FileReader(path+"/"+cityName+".txt"));
-			while((line=bufRead.readLine())!=null) {
-				Gson gson = new Gson();
-				result=line;
-				Weather weather = gson.fromJson(result, Weather.class);
-				wth.add(weather);
-			}
-			return wth;
-		}catch(IOException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	/**
-	 * Metodo che deserializza file contenente dati relativi alle Forecast Api
-	 * 
-	 * @param cityName nome del file della città da deserializzare
-	 * @return vettore di tipo weather relativo alla città deserializzata
-	 */
-	public static Vector<Weather> deserializeForecast(String cityName) {
-		String path="OpenweatherApp/OpenWeather/previsionali";
-		try {
-			BufferedReader bufRead = new BufferedReader(new FileReader(path+"/"+cityName+".txt"));
-		
-			Vector<Weather> wth = new Gson().fromJson(bufRead, new TypeToken<Vector<Weather>>() {}.getType());
-			bufRead.close();
-			    
-			return wth;
-		}catch(IOException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
+public class Deserialize {
+    
+    /**
+     * Method that deserializes a file containing data related to Current API
+     * 
+     * @param cityName name of the city file to deserialize
+     * @return vector of Weather type related to the deserialized city
+     */
+    @SuppressWarnings("resource")
+    public static Vector<Weather> deserializeCurrent(String cityName) {
+        String result = "";
+        String line = "";
+        String path = "OpenweatherApp/OpenWeather/correnti";
+        Vector<Weather> wth = new Vector<Weather>();
+        try {
+            BufferedReader bufRead = new BufferedReader(new FileReader(path + "/" + cityName + ".txt"));
+            while ((line = bufRead.readLine()) != null) {
+                Gson gson = new Gson();
+                result = line;
+                Weather weather = gson.fromJson(result, Weather.class);
+                wth.add(weather);
+            }
+            return wth;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Method that deserializes a file containing data related to Forecast API
+     * 
+     * @param cityName name of the city file to deserialize
+     * @return vector of Weather type related to the deserialized city
+     */
+    public static Vector<Weather> deserializeForecast(String cityName) {
+        String path = "OpenweatherApp/OpenWeather/previsionali";
+        try {
+            BufferedReader bufRead = new BufferedReader(new FileReader(path + "/" + cityName + ".txt"));
+        
+            Vector<Weather> wth = new Gson().fromJson(bufRead, new TypeToken<Vector<Weather>>() {}.getType());
+            bufRead.close();
+                
+            return wth;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

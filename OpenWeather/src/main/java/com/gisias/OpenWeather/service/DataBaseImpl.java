@@ -14,20 +14,21 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 /**
- * Implementazione della classe astratta DataBase
+ * Implementation of the abstract class DataBase
  * 
- * @author AndreaIasenzaniro
- * @author CarloGissi
+ * @authour Andrea Iasenzaniro
+ * @authour Carlo Gissi
  *
  */
 @Service
 public class DataBaseImpl implements DataBase {
 
-	@Value("${openweather.metadata.list}")
+    // Path to the metadata file, injected from application properties
+    @Value("${openweather.metadata.list}")
     private String metadataFile;
 
-	/**
-     * Metodo che legge i dati da un file metadata.json e restituisce una lista di tipo MetaData
+    /**
+     * Method that reads data from a metadata.json file and returns a list of type MetaData
      */
     @Override
     public List<MetaData> getMetaData() {
@@ -35,7 +36,9 @@ public class DataBaseImpl implements DataBase {
         Gson gson = new Gson();
         Type metadataListType = new TypeToken<List<MetaData>>() {}.getType();
 
+        // Try-with-resources to ensure the BufferedReader is closed properly
         try (BufferedReader reader = new BufferedReader(new FileReader(metadataFile))) {
+            // Deserialize JSON from the file into a list of MetaData objects
             metadata = gson.fromJson(reader, metadataListType);
         } catch (IOException e) {
             e.printStackTrace();

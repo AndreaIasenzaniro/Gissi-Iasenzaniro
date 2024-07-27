@@ -1,9 +1,13 @@
 /**
- * Package contentente la classe che permette di interagire con il programma 
+ * Package containing the class that allows interaction with the program.
+ * <p>
+ * This package includes classes that handle HTTP requests and responses,
+ * providing endpoints for interacting with the OpenWeather application.
+ * </p>
  */
 /**
- * @author AndreaIasenzaniro
- * @author CarloGissi
+ * @authour Andrea Iasenzaniro
+ * @authour Carlo Gissi
  *
  */
 package com.gisias.OpenWeather.controller;
