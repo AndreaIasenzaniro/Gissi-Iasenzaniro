@@ -4,10 +4,6 @@
 
 > **Progetto sviluppato per l'appello del 25 Gennaio 2021 di Programmazione ad Oggetti.**
 
-**Autori:**
-- **Carlo Gissi**: 50%
-- **Andrea Iasenzaniro**: 50%
-
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.4.0-green)](https://spring.io/projects/spring-boot)
 [![Java](https://img.shields.io/badge/Java-11-orange)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -83,17 +79,107 @@ Il nostro applicativo permette di interrogare il DataSet locale tramite metodi G
 - **GET /metadata**
   ![GET /metadata](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/GET%20:metadata.png?raw=true)
 
+*Rotta:*
+
+```bash
+
+```
+
+*Richiesta:*
+
+```bash
+
+```
+
+*Risposta:*
+
+```json
+
+```
+
 - **GET /current**?city=cityName
   ![GET /current](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/GET%20:current.png?raw=true)
+
+*Rotta:*
+
+```bash
+
+```
+
+*Richiesta:*
+
+```bash
+
+```
+
+*Risposta:*
+
+```json
+
+```
 
 - **POST /currentstats**
   ![POST /currentstats](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/POST%20:currentstats.png?raw=true)
 
+*Rotta:*
+
+```bash
+
+```
+
+*Richiesta:*
+
+```bash
+
+```
+
+*Risposta:*
+
+```json
+
+```
+
 - **POST /currentfilter**
   ![POST /currentfilter](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/POST%20:currentfilter.png?raw=true)
 
+*Rotta:*
+
+```bash
+
+```
+
+*Richiesta:*
+
+```bash
+
+```
+
+*Risposta:*
+
+```json
+
+```
+
 - **POST /index**
   ![POST /index](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/POST%20:index.png?raw=true)
+
+*Rotta:*
+
+```bash
+
+```
+
+*Richiesta:*
+
+```bash
+
+```
+
+*Risposta:*
+
+```json
+
+```
 
 ---
 
