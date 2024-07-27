@@ -112,4 +112,4 @@ _**OpenWeather**: Portare il clima nelle tue mani._
 |Nome | GitHub |
 |-----------|--------|
 | 👨 `Iasenzaniro Andrea` | [Click here](https://github.com/AndreaIasenzaniro) |
-| 👩 `Gissi Carlo` | [Click here](https://github.com/CarloGissi) |
+| 👨 `Gissi Carlo` | [Click here](https://github.com/CarloGissi) |
