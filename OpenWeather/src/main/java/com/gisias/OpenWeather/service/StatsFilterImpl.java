@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import com.gisias.OpenWeather.Exception.CityNameException;
 import com.gisias.OpenWeather.Exception.DateException;
 import com.gisias.OpenWeather.Filter.IndexFilter;
-import com.gisias.OpenWeather.Filter.IndexTempFilter;
-import com.gisias.OpenWeather.Filter.TempFilter;
+import com.gisias.OpenWeather.Filter.IndexTemporalFilter;
+import com.gisias.OpenWeather.Filter.TemporalFilter;
 import com.gisias.OpenWeather.Stats.Stats;
 import com.gisias.OpenWeather.model.Weather;
 import com.gisias.OpenWeather.util.Deserialize;
@@ -34,7 +34,7 @@ public class StatsFilterImpl extends StatsFilter{
      * @throws ParseException 
      * @throws CityNameException 
      */
-    public String getTempStats(TempFilter filter) throws DateException, ParseException, CityNameException {
+    public String getTempStats(TemporalFilter filter) throws DateException, ParseException, CityNameException {
     	
     	if(StringToDate(filter.getInInstant())<StringToDate(filter.getFinInstant())) {
     		Long data1=StringToDate(filter.getInInstant());
@@ -77,7 +77,7 @@ public class StatsFilterImpl extends StatsFilter{
     /**
      * Metodo che consente di filtrare storico dati per città e data
      */
-    public String getTempFilter(TempFilter filter) throws DateException, ParseException, CityNameException {
+    public String getTempFilter(TemporalFilter filter) throws DateException, ParseException, CityNameException {
     	
     	if(StringToDate(filter.getInInstant())<StringToDate(filter.getFinInstant())) {
     		Long data1=StringToDate(filter.getInInstant());
@@ -104,7 +104,7 @@ public class StatsFilterImpl extends StatsFilter{
 	 *Metodo che consente di effettuare il confronto tra le temperature reali e previsionali di uno stesso giorno
 	 */
 	@Override
-	public String getIndexFilter(IndexTempFilter filter) throws DateException, ParseException, CityNameException {
+	public String getIndexFilter(IndexTemporalFilter filter) throws DateException, ParseException, CityNameException {
 		
 		// Lancia eccezione sulla data
 		if(StringToDate(filter.getInInstant())<StringToDate(filter.getFinInstant())) {

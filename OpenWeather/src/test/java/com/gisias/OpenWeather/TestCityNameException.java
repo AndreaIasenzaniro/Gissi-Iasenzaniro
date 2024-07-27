@@ -8,19 +8,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.gisias.OpenWeather.Exception.CityNameException;
-import com.gisias.OpenWeather.Filter.IndexTempFilter;
-import com.gisias.OpenWeather.Filter.TempFilter;
+import com.gisias.OpenWeather.Filter.IndexTemporalFilter;
+import com.gisias.OpenWeather.Filter.TemporalFilter;
 import com.gisias.OpenWeather.service.StatsFilterImpl;
 
 class TestCityNameException {
 	private StatsFilterImpl t1;
-	private TempFilter filter1;
-	private IndexTempFilter index1;
+	private TemporalFilter filter1;
+	private IndexTemporalFilter index1;
 	@BeforeEach
 	void setUp() throws Exception {
 		t1 = new StatsFilterImpl();
-		filter1 = new TempFilter("Ancon","02/01/2021 00:00:00","09/01/2021 00:00:00");
-		index1 = new IndexTempFilter("Termol","02/01/2021 00:00:00","09/01/2021 00:00:00",5);
+		filter1 = new TemporalFilter("Ancon","02/01/2021 00:00:00","09/01/2021 00:00:00");
+		index1 = new IndexTemporalFilter("Termol","02/01/2021 00:00:00","09/01/2021 00:00:00",5);
 	}
 
 	@AfterEach

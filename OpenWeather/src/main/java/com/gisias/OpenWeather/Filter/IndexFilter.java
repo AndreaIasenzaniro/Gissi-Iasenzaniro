@@ -1,85 +1,90 @@
-/**
- * 
- */
 package com.gisias.OpenWeather.Filter;
 
 import java.util.Vector;
 
 /**
- * Classe relatva al filtraggio delle previsioni azzeccate in base ad un dato margine di errore
+ * Class related to filtering correct forecasts based on a given margin of error
  * 
- * @author AndreaIasenzaniro
- * @author CarloGissi
+ * @author Andrea Iasenzaniro
+ * @author Carlo Gissi
  *
  */
-public class IndexFilter{
-	
-	String dateIn;
-	String dateFin;
-	int correct;
-	int uncorrect;
-	Vector<Double> uncorrectTemp = new Vector<Double>();
-	
-	/**
-	 * @param dateIn data iniziale dell'intervallo
-	 * @param dateFin data finale dell'intervallo
-	 * @param correct contatore delle previsioni azzeccate
-	 * @param uncorrectTemp vettore delle temperature che superano la soglia di errore
-	 */
-	public IndexFilter(String dateIn, String dateFin, int correct, Vector<Double> uncorrectTemp) {
-		this.dateIn = dateIn;
-		this.dateFin = dateFin;
-		this.correct = correct;
-		this.uncorrectTemp = uncorrectTemp;
-		this.uncorrect=this.uncorrectTemp.size();
-	}
-	/**
-	 * @return the dt1
-	 */
-	public String getDt1() {
-		return dateIn;
-	}
-	/**
-	 * @param dt1 the dt1 to set
-	 */
-	public void setDt1(String dt1) {
-		this.dateIn = dt1;
-	}
-	/**
-	 * @return the dt2
-	 */
-	public String getDt2() {
-		return dateFin;
-	}
-	/**
-	 * @param dt2 the dt2 to set
-	 */
-	public void setDt2(String dt2) {
-		this.dateFin = dt2;
-	}
-	/**
-	 * @return the correct
-	 */
-	public int getCorrect() {
-		return correct;
-	}
-	/**
-	 * @param correct the correct to set
-	 */
-	public void setCorrect(int correct) {
-		this.correct = correct;
-	}
-	/**
-	 * @return the temp
-	 */
-	public Vector<Double> getTemp() {
-		return uncorrectTemp;
-	}
-	/**
-	 * @param temp the temp to set
-	 */
-	public void setTemp(Vector<Double> temp) {
-		this.uncorrectTemp = temp;
-	}
-	
+public class IndexFilter {
+
+    String startDate;
+    String endDate;
+    int countCorrect;
+    int countUncorrect;
+    Vector<Double> uncorrectTemp = new Vector<Double>();
+
+    /**
+     * Constructor for IndexFilter
+     * 
+     * @param startDate        start date of the interval
+     * @param endDate       end date of the interval
+     * @param countCorrect       counter for correct forecasts
+     * @param uncorrectTemp vector of temperatures that exceed the error threshold
+     */
+    public IndexFilter(String startDate, String endDate, int countCorrect, Vector<Double> uncorrectTemp) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.countCorrect = countCorrect;
+        this.uncorrectTemp = uncorrectTemp;
+        this.countUncorrect = this.uncorrectTemp.size();
+    }
+
+    /**
+     * @return the startDate
+     */
+    public String getStartDate() {
+        return startDate;
+    }
+
+    /**
+     * @param date the startDate to set
+     */
+    public void setStartDate(String date) {
+        this.startDate = date;
+    }
+
+    /**
+     * @return the endDate
+    public String getEndDate() {
+        return endDate;
+    }
+
+    /**
+     * @param date the endDate to set
+     */
+    public void setEndDate(String date) {
+        this.endDate = date;
+    }
+
+    /**
+     * @return the number of correct forecasts
+     */
+    public int getCountCorrect() {
+        return countCorrect;
+    }
+
+    /**
+     * @param correct the number of correct forecasts to set
+     */
+    public void setCountCorrect(int correct) {
+        this.countCorrect = correct;
+    }
+
+    /**
+     * @return the vector of temperatures that exceed the error threshold
+     */
+    public Vector<Double> getTemp() {
+        return uncorrectTemp;
+    }
+
+    /**
+     * @param temp the vector of temperatures that exceed the error threshold to set
+     */
+    public void setTemp(Vector<Double> temp) {
+        this.uncorrectTemp = temp;
+    }
 }

@@ -9,8 +9,8 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.*;
 
-import com.gisias.OpenWeather.Filter.IndexTempFilter;
-import com.gisias.OpenWeather.Filter.TempFilter;
+import com.gisias.OpenWeather.Filter.IndexTemporalFilter;
+import com.gisias.OpenWeather.Filter.TemporalFilter;
 import com.gisias.OpenWeather.model.Weather;
 
 /**
@@ -101,20 +101,20 @@ public abstract class StatsFilter {
     * @param filter oggetto di tipo TempFilter
     * @return Stringa Json dell'oggetto Stats
     */
-    public abstract String getTempStats(TempFilter filter) throws Exception;
+    public abstract String getTempStats(TemporalFilter filter) throws Exception;
     /**
      * Dichiarazione metodo astratto per applicare filtri temporali
      * 
      * @param filter filter oggetto di tipo TempFilter
      * @return Stringa Json dell'oggetto Weather 
      */
-    public abstract String getTempFilter(TempFilter filter) throws Exception;
+    public abstract String getTempFilter(TemporalFilter filter) throws Exception;
     /**
      * Dichiarazione metodo astratto per applicare filtro per margine di errore
      * 
      * @param filter filter oggetto di tipo IndexTempFilter
      * @return Stringa Json dell'oggetto IndexFilter
      */
-    public abstract String getIndexFilter(IndexTempFilter filter) throws Exception;
+    public abstract String getIndexFilter(IndexTemporalFilter filter) throws Exception;
 
 }

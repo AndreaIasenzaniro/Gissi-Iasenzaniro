@@ -5,22 +5,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * Classe di bootstrap dell'applicativo
+ * Bootstrap class for the application
  * 
- * @author AndreaIasenzaniro
- * @author CarloGissi
+ * @authour Andrea Iasenzaniro
+ * @authour Carlo Gissi
  *
  */
 @SpringBootApplication
 /*
- * annotazione che abilita la capacità di esecuzione delle attività pianificate di Spring
+ * Annotation that enables Spring's scheduled task execution capability
  */
 @EnableScheduling
 public class OpenWeatherApplication {
 
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(OpenWeatherApplication.class, args);
-				
-	}
-
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(OpenWeatherApplication.class, args);
+    }
 }

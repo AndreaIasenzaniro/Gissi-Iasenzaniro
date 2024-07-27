@@ -1,21 +1,19 @@
 package com.gisias.OpenWeather.Exception;
 
 /**
- * @author AndreaIasenzaniro
- * @author CarloGissi
+ * Class that handles the exception thrown when a city is not present in the dataset
  * 
- * Classe che gestisce l'eccezione lanciata in caso di città non presente nel dataset
+ * @author Andrea Iasenzaniro
+ * @authour Carlo Gissi
  *
  */
-@SuppressWarnings("serial")
 public class CityNameException extends Exception {
-	 
-	public CityNameException() {
-		 super();
-	}
-	 
-	 public CityNameException(String msg){
-		 super(msg);
-	 }
 
+    public CityNameException() {
+        super();
+    }
+
+    public CityNameException(String msg) {
+        super(msg);
+    }
 }
