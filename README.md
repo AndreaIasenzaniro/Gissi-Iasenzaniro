@@ -97,10 +97,6 @@ Il nostro applicativo permette di interrogare il DataSet locale tramite metodi G
 
 ---
 
-## Contributi
-
-Se desideri contribuire al progetto, ti preghiamo di seguire le linee guida riportate nel file [CONTRIBUTING.md](CONTRIBUTING.md).
-
 ## Licenza
 
 Questo progetto è sotto licenza MIT. Vedi il file [LICENSE](LICENSE) per maggiori dettagli.
@@ -111,8 +107,9 @@ _**OpenWeather**: Portare il clima nelle tue mani._
 
 ---
 
-### Contatti
+## 👥 Autori 
 
-Per qualsiasi domanda o informazione, contatta gli autori:
-- Carlo Gissi: [email@example.com](mailto:email@example.com)
-- Andrea Iasenzaniro: [email@example.com](mailto:email@example.com)
+|Nome | GitHub |
+|-----------|--------|
+| 👨 `Iasenzaniro Andrea` | [Click here](https://github.com/AndreaIasenzaniro) |
+| 👩 `Gissi Carlo` | [Click here](https://github.com/CarloGissi) |
