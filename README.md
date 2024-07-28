@@ -60,7 +60,23 @@ Il diagramma dei casi d'uso rappresenta le interazioni principali tra gli utenti
 
 Il diagramma evidenzia come i turisti ottengono informazioni meteorologiche e statistiche, e come l'amministratore gestisce l'acquisizione e l'archiviazione dei dati.
 
-![Alt text](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/UsecaseDiagram.JPG?raw=true)
+```mermaid
+graph TD
+    Tourist(fa:fa-user Tourist) ---|Queries| GetMetadata([fa:fa-folder-open Get Metadata])
+    Tourist ---|Queries| CheckTemperature([fa:fa-folder-open Check Temperature of a Maritime Location])
+    Tourist ---|Queries| ViewStatistics([fa:fa-folder-open View Statistics])
+    Tourist ---|Queries| ApplyFilters([fa:fa-folder-open Apply Filters])
+
+    ViewStatistics ----|Include| DataArchive([fa:fa-folder-open Data Archive])
+    ViewStatistics ----|Include| Parsing([fa:fa-folder-open Parsing])
+
+    ApplyFilters ----|Extends| ViewStatistics
+    
+    DataArchive ----|Include| Parsing
+    Parsing ----|Include| APIAcquisition([fa:fa-folder-open API Acquisition])
+
+    Administrator(fa:fa-user-lock Administrator) ---|Manages| APIAcquisition
+```
 
 ## Struttura Interna
 
@@ -68,7 +84,96 @@ Il diagramma evidenzia come i turisti ottengono informazioni meteorologiche e st
 
 Il seguente diagramma delle classi rappresenta la struttura interna del sistema OpenWeather; illustra le relazioni tra queste classi e come collaborano per fornire le funzionalità del sistema OpenWeather.
 
-![Class Diagram](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/ClassDiagram.JPG?raw=true)
+```mermaid
+classDiagram
+    class OpenWeatherApplication {
+        +main(String[] args): void
+    }
+    
+    class Controller {
+        +getTempStats(TempFilter filter): String
+        +getTempFilter(TempFilter filter): String
+    }
+
+    class Stats {
+        +max: Double
+        +min: Double
+        +realAvg: Double
+        +realVariance: Double
+        +feelAvg: Double
+        +feelVariance: Double
+    }
+
+    namespace Exception {
+       class DateException
+       class CityNameException
+    }
+
+    namespace Model {
+        class Data {
+            #cityName: String
+            #lat: Double
+            #lon: Double
+            +getCoord(): void
+        }
+
+        class Weather {
+            #cityName: String
+            #epoch: Long
+            #clouds: Double
+            #temp: Double
+            #feels_like: Double
+            #tempMax: Double
+            #tempMin: Double
+            #wind_speed: Double
+        }
+
+        class MetaData {
+            #alias: String
+            #sourceField: String
+            #type: String
+        }
+    }
+
+    namespace Service {
+        class Methods {
+            +getCities(): Vector<String>
+            +writeCurrent(): void
+            +writeForecast(): void
+        }
+
+        class Parser {
+            +currentParser(String cityname): String
+            +forecastParser(String cityname): String
+        }
+
+        class StatsFilterImpl {
+            +getTempStats(TempFilter filter): String
+            +getTempFilter(TempFilter filter): String
+            +getIndexFilter(IndexTempFilter filter): String
+        }
+    }
+
+    namespace Filter {
+        class TempFilter {
+            #inInstant: String
+            #finInstant: String
+            #cityName: String
+        }
+
+        class IndexTempFilter {
+            #errorMarg: Double
+        }
+
+        class IndexFilter {
+            #dt: String
+            #temp: Double
+        }
+    }
+
+    Data <|-- Weather
+    TempFilter <|-- IndexTempFilter
+```
 
 ### Descrizione delle rotte
 
@@ -103,108 +208,352 @@ L'applicativo permette di interrogare il DataSet locale, appositamente creato, t
 ### Diagramma delle Sequenze
 
 - **GET /metadata**
-  ![GET /metadata](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/GET%20:metadata.png?raw=true)
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Controller
+    participant DataBase
+    participant MetadataFile
+
+    Client->>Controller: GET /metadata
+    Controller->>DataBase: getMetaData()
+    DataBase->>MetadataFile: Read metadata.json
+    MetadataFile-->>DataBase: List of Metadata
+    DataBase-->>Controller: List of Metadata
+    Controller-->>Client: List of Metadata (JSON)
+```
 
 *Rotta:*
 
 ```bash
-
-```
-
-*Richiesta:*
-
-```bash
-
+GET /metadata
 ```
 
 *Risposta:*
 
 ```json
-
+[
+    {
+        "name": "cityName",
+        "description": "Nome della citta",
+        "type": "String"
+    },
+    {
+        "name": "dt",
+        "description": "Periodo di riferimento",
+        "type": "String"
+    },
+    {
+        "name": "clouds",
+        "description": "Nuvolosità della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "name": "temp",
+        "description": "Temperatura della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "name": "feels_like",
+        "description": "Temperatura percepita della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "name": "tempMax",
+        "description": "Temperatura massima della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "name": "tempMin",
+        "description": "Temperatura minima della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "name": "wind_speed",
+        "description": "Ventosità della città nel periodo considerato",
+        "type": "String"
+    },
+    {
+        "name": "inInstant",
+        "description": "Inizio intervallo di ricerca nel formato dd/MM/yy HH:mm:ss",
+        "type": "String"
+    },
+    {
+        "name": "finInstant",
+        "description": "Fine intervallo di ricerca nel formato dd/MM/yy HH:mm:ss",
+        "type": "String"
+    },
+    {
+        "name": "max",
+        "description": "Temperatura massima nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "name": "min",
+        "description": "Temperatura minima nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "name": "realAvg",
+        "description": "Media delle temperature reali nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "name": "realVariance",
+        "description": "Varianza delle temperature reali nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "name": "feelAvg",
+        "description": "Media delle temperature percepite nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "name": "feelVariance",
+        "description": "Varianza delle temperature percepite nell'intervallo richiesto",
+        "type": "double"
+    },
+    {
+        "name": "errorMarg",
+        "description": "Errore marginale nel calcolo delle previsioni rispetto alla realtà",
+        "type": "double"
+    },
+    {
+        "name": "dateIn",
+        "description": "Inizio intervallo di ricerca nel formato dd/MM/yy",
+        "type": "String"
+    },
+    {
+        "name": "dateFin",
+        "description": "Fine intervallo di ricerca nel formato dd/MM/yy",
+        "type": "String"
+    },
+    {
+        "name": "correct",
+        "description": "Quantità di previsioni azzeccate nell'intervallo richiesto",
+        "type": "int"
+    },
+    {
+        "name": "uncorrectTemp",
+        "description": "Vettore di temperature non azzeccate in base all'errore dato",
+        "type": "Vector<Double>"
+    }
+]
 ```
 
 - **GET /current**?city=cityName
-  ![GET /current](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/GET%20:current.png?raw=true)
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Controller
+    participant Parser
+    participant OpenWeatherAPI
+
+    Client->>Controller: GET /current?city=cityName
+    Controller->>Parser: currentParser(cityName)
+    Parser->>OpenWeatherAPI: GET weather?q=cityName&appid=apiKey
+    OpenWeatherAPI-->>Parser: JSON weather data
+    Parser->>Controller: Serialized weather data
+    Controller-->>Client: Serialized weather data
+```
 
 *Rotta:*
 
 ```bash
-
+GET /current
 ```
 
-*Richiesta:*
+*Params:*
 
 ```bash
-
+?city=Termoli
 ```
 
 *Risposta:*
 
 ```json
-
+{
+    "dt": 1722065374,
+    "clouds": 0.0,
+    "temp": 305.81,
+    "feels_like": 304.37,
+    "tempMax": 305.81,
+    "tempMin": 305.81,
+    "wind_speed": 0.83,
+    "cityName": "\"Termoli\"",
+    "lat": 41.9888,
+    "lon": 14.9895
+}
 ```
 
 - **POST /currentstats**
-  ![POST /currentstats](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/POST%20:currentstats.png?raw=true)
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Controller
+    participant StatsFilterImpl
+    participant Deserialize
+
+    Client->>Controller: GET /currentstats
+    Controller->>StatsFilterImpl: getTempStats(TemporalFilter)
+    StatsFilterImpl->>Deserialize: deserializeCurrent(cityName)
+    Deserialize-->>StatsFilterImpl: Vector<Weather>
+    StatsFilterImpl->>StatsFilterImpl: Calculate statistics
+    StatsFilterImpl-->>Controller: Statistics (JSON)
+    Controller-->>Client: Statistics (JSON)
+```
 
 *Rotta:*
 
 ```bash
-
+GET /currentstats
 ```
 
-*Richiesta:*
+*Body:*
 
-```bash
-
+```json
+{
+    "cityName":"Ancona",
+    "inInstant": "03/01/2021 10:00:00",
+    "finInstant":"06/01/2021 10:00:00"
+}
 ```
 
 *Risposta:*
 
 ```json
-
+{
+    "max": 285.37,
+    "min": 274.15,
+    "realAvg": 279.24,
+    "realVariance": 3.71,
+    "feelAvg": 276.83,
+    "feelVariance": 4.85
+}
 ```
 
 - **POST /currentfilter**
-  ![POST /currentfilter](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/POST%20:currentfilter.png?raw=true)
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Controller
+    participant StatsFilterImpl
+    participant Deserialize
+
+    Client->>Controller: GET /currentfilter
+    Controller->>StatsFilterImpl: getTempFilter(TemporalFilter)
+    alt Invalid time intervals
+        StatsFilterImpl-->>Controller: throw DateException
+        Controller-->>Client: DateException (JSON)
+    else Valid time intervals
+        StatsFilterImpl->>Deserialize: deserializeCurrent(cityName)
+        Deserialize-->>StatsFilterImpl: Vector<Weather>
+        StatsFilterImpl->>StatsFilterImpl: Filter weather data
+        StatsFilterImpl-->>Controller: Filtered data (JSON)
+        Controller-->>Client: Filtered data (JSON)
+    end
+```
 
 *Rotta:*
 
 ```bash
-
+GET /currentfilter
 ```
 
-*Richiesta:*
+*Body:*
 
 ```bash
-
+{
+    "cityName":"Ancona",
+    "inInstant": "02/01/2021 10:00:00",
+    "finInstant":"02/01/2021 21:00:00"
+}
 ```
 
 *Risposta:*
 
 ```json
-
+[
+    {
+        "dt": 1609613999,
+        "clouds": 100.0,
+        "temp": 282.07,
+        "feels_like": 280.64,
+        "tempMax": 283.71,
+        "tempMin": 279.82,
+        "wind_speed": 1.0,
+        "cityName": "\"Provincia di Ancona\"",
+        "lat": 43.55,
+        "lon": 13.17
+    },
+    {
+        "dt": 1609617599,
+        "clouds": 100.0,
+        "temp": 281.91,
+        "feels_like": 279.45,
+        "tempMax": 283.15,
+        "tempMin": 279.82,
+        "wind_speed": 2.1,
+        "cityName": "\"Provincia di Ancona\"",
+        "lat": 43.55,
+        "lon": 13.17
+    }
+]
 ```
 
 - **POST /index**
-  ![POST /index](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/POST%20:index.png?raw=true)
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Controller
+    participant StatsFilterImpl
+    participant Deserialize
+
+    Client->>Controller: GET /index
+    Controller->>StatsFilterImpl: getIndexFilter(IndexTemporalFilter)
+    alt Invalid time intervals
+        StatsFilterImpl-->>Controller: throw DateException
+        Controller-->>Client: DateException (JSON)
+    else Valid time intervals
+        StatsFilterImpl->>Deserialize: deserializeCurrent(cityName)
+        Deserialize-->>StatsFilterImpl: Vector<Weather>
+        StatsFilterImpl->>Deserialize: deserializeForecast(cityName)
+        Deserialize-->>StatsFilterImpl: Vector<Weather>
+        StatsFilterImpl->>StatsFilterImpl: Compare weather data and calculate accuracy
+        StatsFilterImpl-->>Controller: Filtered data (JSON)
+        Controller-->>Client: Filtered data (JSON)
+    end
+```
 
 *Rotta:*
 
 ```bash
-
+GET /index
 ```
 
-*Richiesta:*
+*Body:*
 
-```bash
-
+```json
+{
+    "cityName": "Ancona",
+    "inInstant": "02/01/2021 10:00:00",
+    "finInstant": "10/01/2021 00:00:00",
+    "errorMarg": 5
+}
 ```
 
 *Risposta:*
 
 ```json
-
+{
+    "startDate": "02-01-2021",
+    "endDate": "10-01-2021",
+    "countCorrect": 7,
+    "countUncorrect": 1,
+    "uncorrectTemp": [
+        5.01
+    ]
+}
 ```
 
 ---
@@ -212,10 +561,6 @@ L'applicativo permette di interrogare il DataSet locale, appositamente creato, t
 ## Licenza
 
 Questo progetto è sotto licenza MIT. Vedi il file [LICENSE](LICENSE) per maggiori dettagli.
-
----
-
-_**OpenWeather**: Portare il clima nelle tue mani._
 
 ---
 
