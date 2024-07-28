@@ -36,9 +36,43 @@ Per garantire l'uso didattico del nostro applicativo, abbiamo salvato in locale 
 
 ### Diagramma dei Casi d'Uso
 
-![Use Case Diagram](//www.plantuml.com/plantuml/png/XPAzJWCn48HxFyKgVOhyInGeKMWe42cWGXGhUo4hsRvWhn7YQUXv1BhmOgnEZYwv8AMuasRckz6DvMKMJ5A2DsYbIV1G4gjLrIe4ZgeJgY9ZIYQBcM1mBy8K2Uv8qA7W0333uthK4Uicvk85mHC8XHrfHqa4Zg54THkBdkNt2m8crhPmw1Z_qv45XREmtLAb9XsrskqyMuGNzfAuvjEZFDajltC3DoY7UDR56qoPusiDvaVVsRV2cJ-vqQ4walK5gyrj9HV6rCE2uV2w7N-gnpqzCVh0yCbXtf9xRhqfNC7-cpw4ejl_63LwmAm5E5fV7BN4h4VCpuXvZrYS4QEB7UCB_s5EhqQTk31B7LA2_mC0)
+#### Descrizione del Diagramma dei Casi d'Uso
 
-Il nostro applicativo permette di interrogare il DataSet locale tramite metodi GET e POST per ottenere:
+Il diagramma dei casi d'uso rappresenta le interazioni principali tra gli utenti e il sistema OpenWeather.
+
+#### Attori e Casi d'Uso
+
+1. **Turista**:
+   - **Ottiene Metadata**: Recupera i metadati dei dati disponibili.
+   - **Consulta le temperature di una località marittima**: Verifica le temperature attuali di una località specifica.
+   - **Consulta statistiche**: Visualizza statistiche delle temperature per una località.
+     - **Applica filtri**: Filtra le statistiche per ottenere informazioni specifiche (estende "Consulta statistiche").
+
+2. **Amministratore**:
+   - **Acquisizione dati da API**: Acquisisce dati dalle API di OpenWeather.
+
+#### Interazioni tra i Casi d'Uso
+
+- **Archivio Dati**: 
+  - Incluso in "Consulta statistiche" e "Applica filtri" per accedere ai dati salvati.
+- **Parsing**: 
+  - Incluso in "Archivio Dati" e "Acquisizione dati da API" per elaborare i dati ricevuti.
+
+Il diagramma evidenzia come i turisti ottengono informazioni meteorologiche e statistiche, e come l'amministratore gestisce l'acquisizione e l'archiviazione dei dati.
+
+![Alt text](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/UsecaseDiagram.JPG?raw=true)
+
+## Struttura Interna
+
+### Diagramma delle Classi
+
+Il seguente diagramma delle classi rappresenta la struttura interna del sistema OpenWeather; illustra le relazioni tra queste classi e come collaborano per fornire le funzionalità del sistema OpenWeather.
+
+![Class Diagram](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/ClassDiagram.JPG?raw=true)
+
+### Descrizione delle rotte
+
+L'applicativo permette di interrogare il DataSet locale, appositamente creato, tramite metodi GET e POST per ottenere:
 
 - Informazioni sui **metadata** dei dati ricevuti.
 - **Previsioni attuali** per una città specifica.
@@ -46,15 +80,13 @@ Il nostro applicativo permette di interrogare il DataSet locale tramite metodi G
 - Numero di **previsioni azzeccate** rispetto a un margine di errore fornito dall'utente.
 - **Filtraggio del DataSet** storico locale.
 
-### Rotte Disponibili
-
 | TIPO | ROTTA | DESCRIZIONE |
 |------|-------|-------------|
-| GET  | `/metadata` | Restituisce l'elenco degli attributi dei dati input e output. |
-| GET  | `/current` | Interroga le API fornendo il nome della città per ottenere previsioni attuali. |
-| POST | `/currentstats` | Restituisce statistiche sulle temperature basate sui filtri del body della richiesta. |
-| POST | `/currentfilter` | Restituisce le previsioni orarie di una città filtrate secondo il body della richiesta. |
-| POST | `/index` | Restituisce l'accuratezza della previsione effettuata in base all'errore passato nel body della richiesta. |
+| GET | `/metadata` | Restituisce l'elenco degli attributi dei dati input e output. |
+| GET | `/current` | Interroga le API fornendo il nome della città per ottenere previsioni attuali. |
+| GET | `/currentstats` | Restituisce statistiche sulle temperature basate sui filtri del body della richiesta. |
+| GET | `/currentfilter` | Restituisce le previsioni orarie di una città filtrate secondo il body della richiesta. |
+| GET | `/index` | Restituisce l'accuratezza della previsione effettuata in base all'errore passato nel body della richiesta. |
 
 ### Filtri Applicabili
 
@@ -65,12 +97,6 @@ Il nostro applicativo permette di interrogare il DataSet locale tramite metodi G
 | `/index` | cityName, inInstant, finInstant, errorMarg | Nome della città, intervallo temporale e margine di errore della previsione. | `{"cityName": "Ancona","inInstant": "02/01/2021 10:00:00","finInstant": "10/01/2021 00:00:00","errorMarg": 5}` |
 
 > **NOTA**: La rotta `/currentfilter`, in assenza di intervallo temporale fornito, restituisce l'intero DataSet locale.
-
-## Struttura Interna
-
-### Diagramma delle Classi
-
-![Class Diagram](https://github.com/CarloGissi/Gissi-Iasenzaniro/blob/main/UML/ClassDiagram.JPG?raw=true)
 
 ## Funzionamento Interno
 
